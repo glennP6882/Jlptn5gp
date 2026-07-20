@@ -1,0 +1,2690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>JLPT N5 Kanji — Complete Memory Guide</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#b8860b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="N5 Study">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<!-- iOS home-screen splash screens (Android TWA splash is auto-generated from manifest icon + background_color, no tags needed) -->
+<link rel="apple-touch-startup-image" href="splash/splash-1170x2532.png" media="(device-width: 390px) and (device-height: 844px) and (-webkit-device-pixel-ratio: 3)">
+<link rel="apple-touch-startup-image" href="splash/splash-1284x2778.png" media="(device-width: 428px) and (device-height: 926px) and (-webkit-device-pixel-ratio: 3)">
+<link rel="apple-touch-startup-image" href="splash/splash-1080x1920.png">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Kaisei+Decol:wght@400;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light;
+  --bg: #faf8f4;
+  --surface: #f0ece3;
+  --card: #ffffff;
+  --border: rgba(160,120,40,0.15);
+  --gold: #b8860b;
+  --gold-dim: #a07828;
+  --red: #c0392b;
+  --jade: #2e7d5e;
+  --sky: #2a6e9a;
+  --lavender: #6a4ea8;
+  --rose: #a84858;
+  --text: #2a2218;
+  --text-dim: #6a5a3a;
+  --text-faint: #a09070;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Lora', Georgia, serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Subtle grain */
+body::before {
+  content:'';
+  position:fixed;
+  inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events:none;
+  z-index:0;
+  opacity:0.4;
+}
+
+/* ===== LAYOUT ===== */
+.wrapper { position:relative; z-index:1; max-width:1100px; margin:0 auto; padding:0 20px 100px; }
+
+/* ===== TOP NAV ===== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(250,248,244,0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.topbar-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+.nav-tab {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-dim);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.nav-tab:hover { color: var(--text); border-color: var(--border); }
+.nav-tab.active { background: var(--gold); color: #000; font-weight: 500; }
+.search-box {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 12px;
+  border-radius: 6px;
+  width: 180px;
+  outline: none;
+}
+.search-box:focus { border-color: var(--gold-dim); }
+.search-box::placeholder { color: var(--text-faint); }
+
+/* ===== HERO ===== */
+header {
+  padding: 64px 0 48px;
+  text-align: center;
+  position: relative;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-bg-kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 320px;
+  font-weight: 700;
+  color: rgba(160,120,40,0.06);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+  display: block;
+  margin-bottom: 16px;
+}
+h1 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  color: var(--gold);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.hero-sub {
+  font-size: 1rem;
+  color: var(--text-dim);
+  font-style: italic;
+  max-width: 520px;
+  margin: 0 auto 28px;
+  line-height: 1.7;
+}
+.stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.stat {
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 2rem;
+  color: var(--gold);
+  display: block;
+  line-height: 1;
+}
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 4px;
+}
+
+/* ===== CATEGORY SECTION ===== */
+.category-section {
+  margin-bottom: 52px;
+}
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.cat-icon {
+  font-size: 1.4rem;
+  width: 36px;
+  text-align: center;
+  flex-shrink: 0;
+}
+.cat-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.15rem;
+  color: var(--gold);
+}
+.cat-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  margin-left: auto;
+}
+
+/* ===== KANJI CARDS ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 14px;
+}
+
+.kcard {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 16px 14px;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+.kcard:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold-dim);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+.kcard.expanded {
+  border-color: var(--gold);
+}
+.kcard-top-strip {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 10px 10px 0 0;
+}
+.kcard-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.kcard-char {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+}
+.kcard-readings {
+  flex: 1;
+  min-width: 0;
+}
+.kcard-meaning {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+.kcard-kun {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.kcard-on {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  display: block;
+}
+.kcard-mnemonic {
+  font-size: 0.78rem;
+  line-height: 1.55;
+  color: var(--text-dim);
+  font-style: italic;
+  border-left: 2px solid;
+  padding-left: 10px;
+  margin-top: 8px;
+  display: none;
+}
+.kcard.expanded .kcard-mnemonic {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+.kcard-expand-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  text-align: right;
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+}
+.kcard.expanded .kcard-expand-hint { display: none; }
+
+@keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+
+/* ===== HIRAGANA TAB ===== */
+.hira-intro { text-align:center; padding:40px 0 24px; }
+.hira-intro h2 { font-family:'Kaisei Decol',serif; font-size:1.6rem; color:var(--gold); margin-bottom:8px; }
+.hira-intro p { color:var(--text-dim); font-style:italic; font-size:0.9rem; max-width:560px; margin:0 auto; }
+.hira-row-nav { display:flex; flex-wrap:wrap; gap:6px; justify-content:center; margin:20px 0 32px; }
+.hira-row-chip {
+  font-family:'DM Mono', monospace; font-size:0.68rem; letter-spacing:0.06em;
+  padding:6px 12px; border-radius:20px; border:1px solid var(--border);
+  background:transparent; color:var(--text-dim); cursor:pointer; transition:all 0.15s;
+}
+.hira-row-chip:hover, .hira-row-chip.active { background:var(--gold); color:#000; border-color:var(--gold); }
+.hira-group-title {
+  font-family:'Kaisei Decol', serif; font-size:1.05rem; color:var(--gold-dim);
+  margin:32px 0 14px; padding-bottom:6px; border-bottom:1px solid var(--border);
+}
+.hira-grid {
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(150px, 1fr)); gap:12px;
+}
+.hcard {
+  background:var(--card); border:1px solid var(--border); border-radius:10px;
+  padding:16px 14px 12px; text-align:center; cursor:pointer;
+  transition:transform 0.2s ease, border-color 0.2s, box-shadow 0.2s;
+}
+.hcard:hover { transform:translateY(-3px); border-color:var(--gold-dim); box-shadow:0 8px 32px rgba(0,0,0,0.08); }
+.hcard.expanded { border-color:var(--gold); }
+.hcard-char {
+  font-family:'Noto Serif JP', serif; font-size:44px; font-weight:700; color:var(--lavender);
+  line-height:1; margin-bottom:4px;
+}
+.hcard-romaji {
+  font-family:'DM Mono', monospace; font-size:0.85rem; letter-spacing:0.08em;
+  color:var(--gold); margin-bottom:8px;
+}
+.hcard-btn-row { display:flex; gap:6px; justify-content:center; margin-bottom:6px; }
+.hcard-mini-btn {
+  font-family:'DM Mono', monospace; font-size:0.6rem; letter-spacing:0.04em;
+  background:var(--surface); border:1px solid var(--border); color:var(--text-dim);
+  border-radius:14px; padding:4px 9px; cursor:pointer; transition:all 0.15s;
+}
+.hcard-mini-btn:hover { border-color:var(--gold-dim); color:var(--gold-dim); }
+.hcard-mini-btn.speaking { background:var(--gold); color:#fff; border-color:var(--gold); }
+.hcard-detail {
+  display:none; text-align:left; margin-top:8px; padding-top:8px; border-top:1px dashed var(--border);
+}
+.hcard.expanded .hcard-detail { display:block; animation:fadeIn 0.2s ease; }
+.hcard-mnemonic {
+  font-size:0.72rem; line-height:1.5; color:var(--text-dim); font-style:italic; margin-bottom:8px;
+}
+.hcard-strokes {
+  font-family:'DM Mono', monospace; font-size:0.62rem; color:var(--text-faint); line-height:1.6;
+}
+.hcard-strokes b { color:var(--gold-dim); font-style:normal; }
+.hcard-strokes ol { padding-left:16px; margin-top:4px; }
+.hcard-strokes li { margin-bottom:2px; }
+
+.hquiz-mode-row { display:flex; gap:10px; justify-content:center; margin-bottom:20px; flex-wrap:wrap; }
+.hcard-dakuten .hcard-char { color:var(--rose); }
+.hira-dakuten-divider {
+  text-align:center; font-family:'Kaisei Decol', serif; font-size:1.15rem; color:var(--rose);
+  margin:48px 0 4px; padding-top:32px; border-top:2px solid var(--border);
+}
+.hira-dakuten-divider span {
+  display:block; font-family:'Lora', serif; font-style:italic; font-size:0.82rem;
+  color:var(--text-dim); font-weight:400; margin-top:6px;
+}
+
+/* ===== TABS CONTENT ===== */
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* ===== QUIZ ===== */
+.quiz-wrap {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+.quiz-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.quiz-header h2 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.6rem;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+.quiz-header p {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+.quiz-mode-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+.quiz-mode-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.quiz-mode-btn.active, .quiz-mode-btn:hover {
+  background: var(--gold);
+  color: #000;
+  border-color: var(--gold);
+}
+
+.quiz-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 32px 28px;
+  text-align: center;
+}
+.quiz-display {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 96px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+  text-shadow: 0 0 40px rgba(160,120,40,0.15);
+}
+.quiz-category-tag {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  margin-bottom: 24px;
+  display: block;
+}
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.qbtn {
+  font-family: 'Lora', serif;
+  font-size: 0.88rem;
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 14px 10px;
+  cursor: pointer;
+  transition: all 0.15s;
+  line-height: 1.3;
+}
+.qbtn:hover:not(:disabled) { border-color: var(--gold-dim); background: #f0ece0; }
+.qbtn.correct { background: rgba(74,158,122,0.25); border-color: var(--jade); color: var(--jade); }
+.qbtn.wrong { background: rgba(212,82,58,0.2); border-color: var(--red); color: var(--red); }
+.quiz-feedback {
+  min-height: 48px;
+  font-size: 0.85rem;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--text-dim);
+  padding: 8px 4px;
+}
+.quiz-feedback.good { color: var(--jade); }
+.quiz-feedback.bad { color: var(--red); }
+.quiz-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+.quiz-score {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--gold-dim);
+  letter-spacing: 0.1em;
+}
+.quiz-progress {
+  flex: 1;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  margin: 0 16px;
+  overflow: hidden;
+}
+.quiz-progress-fill {
+  height: 100%;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: width 0.4s ease;
+}
+.btn-next {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  background: var(--gold);
+  color: #000;
+  border: none;
+  border-radius: 7px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.btn-next:hover { opacity: 0.85; }
+
+/* ===== CHEATSHEET ===== */
+.cheatsheet-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+  margin-top: 24px;
+}
+.cheatsheet-table th {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.cheatsheet-table td {
+  padding: 10px 12px;
+  background: var(--card);
+  font-size: 0.85rem;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+}
+.cheatsheet-table tr:hover td { background: #f0ece0; }
+.cheatsheet-table td:first-child {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  width: 54px;
+  text-align: center;
+  border-radius: 6px 0 0 6px;
+}
+.cheatsheet-table td:last-child { border-radius: 0 6px 6px 0; }
+.cs-kun {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--gold);
+}
+.cs-on {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  display: block;
+  margin-top: 2px;
+}
+.cs-meaning { font-family: 'Lora', serif; }
+.cs-mnemonic { color: var(--text-dim); font-style: italic; font-size: 0.78rem; }
+
+
+/* ===== LOOK-ALIKES TAB ===== */
+.la-section {
+  margin-bottom: 60px;
+}
+.la-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 6px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.la-root-badge {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.9rem;
+  font-weight: 700;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+.la-header-info h3 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.05rem;
+  color: var(--gold);
+  line-height: 1.2;
+}
+.la-header-info p {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  font-style: italic;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+.la-count {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* The family strip — horizontal scroll on mobile */
+.la-family-strip {
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+.la-family-strip::-webkit-scrollbar { height: 4px; }
+.la-family-strip::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* Arrow connector between cards */
+.la-arrow {
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  color: var(--text-faint);
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  align-self: center;
+  margin-top: -24px; /* align with kanji char */
+}
+
+/* Individual look-alike card */
+.la-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 14px 12px;
+  min-width: 130px;
+  max-width: 150px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s, box-shadow 0.18s;
+  position: relative;
+  overflow: hidden;
+}
+.la-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: var(--gold-dim);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.12);
+  z-index: 2;
+}
+.la-card.la-root {
+  border-width: 2px;
+}
+.la-card-strip {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 12px 12px 0 0;
+}
+.la-card-char {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.05;
+  display: block;
+  text-align: center;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.12));
+}
+.la-card-meaning {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 0.82rem;
+  color: var(--text);
+  display: block;
+  text-align: center;
+  margin-bottom: 3px;
+  line-height: 1.2;
+}
+.la-card-kun {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: var(--gold);
+  display: block;
+  text-align: center;
+  margin-bottom: 2px;
+}
+.la-card-diff {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--text-faint);
+  display: block;
+  text-align: center;
+  margin-top: 4px;
+  letter-spacing: 0.05em;
+}
+.la-root-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  display: block;
+  margin-top: 4px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(160,120,40,0.1);
+  color: var(--gold-dim);
+}
+
+/* Mnemonic panel below the strip */
+.la-mnemonic-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-top: 12px;
+  overflow: hidden;
+  display: none;
+}
+.la-mnemonic-panel.visible { display: block; }
+.la-mnemonic-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  animation: fadeIn 0.2s ease;
+}
+.la-mnemonic-row:last-child { border-bottom: none; }
+.la-mn-char {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  width: 40px;
+  text-align: center;
+  line-height: 1;
+}
+.la-mn-body { flex: 1; }
+.la-mn-meaning {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 0.88rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 3px;
+}
+.la-mn-kun {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 5px;
+}
+.la-mn-text {
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+.la-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  letter-spacing: 0.08em;
+  margin-top: 8px;
+  text-align: right;
+  padding-right: 4px;
+}
+
+/* Diff highlight badge on card */
+.la-diff-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  letter-spacing: 0.06em;
+  padding: 2px 5px;
+  border-radius: 4px;
+  border: 1px solid;
+  line-height: 1.4;
+}
+
+/* ===== AUDIO SPEAKER BUTTON ===== */
+.speak-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid rgba(160,120,40,0.3);
+  background: rgba(160,120,40,0.08);
+  color: var(--gold-dim);
+  cursor: pointer;
+  font-size: 11px;
+  transition: background 0.15s, color 0.15s, transform 0.1s;
+  flex-shrink: 0;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.speak-btn:hover { background: rgba(160,120,40,0.18); color: var(--gold); transform: scale(1.15); }
+.speak-btn.speaking { background: var(--gold); color: #fff; animation: pulse-speak 0.6s ease infinite alternate; }
+@keyframes pulse-speak {
+  from { box-shadow: 0 0 0 0 rgba(160,120,40,0.5); }
+  to   { box-shadow: 0 0 0 6px rgba(160,120,40,0); }
+}
+.quiz-speak-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+.quiz-speak-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  padding: 7px 18px;
+  border-radius: 20px;
+  border: 1px solid rgba(160,120,40,0.3);
+  background: rgba(160,120,40,0.07);
+  color: var(--gold-dim);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.quiz-speak-btn:hover { background: rgba(160,120,40,0.15); color: var(--gold); }
+.quiz-speak-btn.speaking { background: var(--gold); color: #fff; }
+
+/* ===== MEMORY THEATER ===== */
+.theater-wrap { padding: 40px 0; }
+.theater-intro {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.theater-intro h2 {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+.theater-intro p {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 0.95rem;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.theater-group {
+  margin-bottom: 56px;
+}
+.theater-group-title {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1.1rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theater-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+.tc {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.tc:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.1);
+}
+.tc-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.tc-kanji {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.tc-info { flex: 1; min-width: 0; }
+.tc-meaning {
+  font-family: 'Kaisei Decol', serif;
+  font-size: 1rem;
+  color: var(--text);
+  display: block;
+  margin-bottom: 3px;
+}
+.tc-reading {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+}
+.tc-on {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--text-faint);
+}
+/* Pictograph / SVG scene area */
+.tc-scene {
+  padding: 16px 18px 10px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+.tc-svg {
+  flex-shrink: 0;
+  width: 72px;
+  height: 72px;
+}
+.tc-story {
+  flex: 1;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--text-dim);
+  font-style: italic;
+}
+/* Radical breakdown row */
+.tc-radicals {
+  padding: 10px 18px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.tc-radical-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  margin-right: 4px;
+  flex-basis: 100%;
+  margin-bottom: 2px;
+}
+.tc-rad {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 4px 9px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+.tc-rad-char {
+  font-family: 'Noto Serif JP', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.tc-rad-eq {
+  color: var(--text-faint);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.8rem;
+  margin: 0 4px;
+}
+/* Origin badge */
+.tc-origin {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 2px 7px;
+  margin-left: 8px;
+  border: 1px solid;
+}
+.origin-pictograph { color: #4a9e7a; border-color: rgba(74,158,122,0.35); background: rgba(74,158,122,0.08); }
+.origin-compound   { color: #5a9ec8; border-color: rgba(90,158,200,0.35); background: rgba(90,158,200,0.08); }
+.origin-semantic   { color: #9a7ec8; border-color: rgba(154,126,200,0.35); background: rgba(154,126,200,0.08); }
+/* Days of week hook */
+.tc-weekday {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 0 18px 14px;
+}
+.tc-day-pill {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  border-radius: 20px;
+  padding: 3px 9px;
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  background: var(--surface);
+}
+/* Tip callout */
+.theater-tip {
+  background: linear-gradient(135deg, rgba(184,134,11,0.07), rgba(184,134,11,0.03));
+  border: 1px solid rgba(184,134,11,0.2);
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 0 0 40px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.theater-tip-icon { font-size: 1.4rem; flex-shrink: 0; }
+.theater-tip-text { font-size: 0.85rem; line-height: 1.6; color: var(--text-dim); font-style: italic; }
+.theater-tip-text strong { color: var(--gold); font-style: normal; }
+</style>
+
+
+</head>
+<body>
+
+<!-- TOP NAV -->
+<div class="topbar">
+  <div class="topbar-title">🗾 JLPT N5 Kanji</div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" onclick="switchTab('browse')">Browse</button>
+    <button class="nav-tab" onclick="switchTab('hiragana')">あ Hiragana</button>
+    <button class="nav-tab" onclick="switchTab('theater')">🎭 Memory Theater</button>
+    <button class="nav-tab" onclick="switchTab('lookalikes')">Look-alikes</button>
+    <button class="nav-tab" onclick="switchTab('quiz')">Quiz</button>
+    <button class="nav-tab" onclick="switchTab('cheatsheet')">Cheatsheet</button>
+  </div>
+  <input class="search-box" id="search-input" placeholder="Search kanji or meaning…" oninput="filterCards(this.value)">
+</div>
+
+<div class="wrapper">
+
+<!-- HERO -->
+<header>
+  <div class="hero-bg">
+    <div class="hero-bg-kanji">日本語</div>
+  </div>
+  <span class="eyebrow">Complete Study Guide</span>
+  <h1>JLPT N5 Kanji</h1>
+  <p class="hero-sub">All ~100 kanji required for the N5 certification, grouped by theme, with kunyomi pronunciation and memory mnemonics.</p>
+  <div class="stats-row">
+    <div class="stat"><span class="stat-num">103</span><span class="stat-label">Kanji</span></div>
+    <div class="stat"><span class="stat-num">12</span><span class="stat-label">Categories</span></div>
+    <div class="stat"><span class="stat-num">∞</span><span class="stat-label">Mnemonics</span></div>
+  </div>
+</header>
+
+<!-- BROWSE TAB -->
+<div id="tab-browse" class="tab-content active">
+  <div id="categories-container"></div>
+</div>
+
+<!-- HIRAGANA TAB -->
+<div id="tab-hiragana" class="tab-content">
+  <div class="hira-intro">
+    <h2>あ Hiragana — The Foundation</h2>
+    <p>All 46 basic hiragana plus ん, and the 25 dakuten/handakuten (゛゜) voiced sounds — が, ざ, だ, ば, ぱ and friends. Tap a card to see the shape mnemonic and stroke order, hit 🔊 to hear it, then test yourself in the quiz below.</p>
+  </div>
+  <div class="hira-row-nav" id="hira-row-nav"></div>
+  <div id="hira-groups-container"></div>
+
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h2>Hiragana Quiz</h2>
+      <p>Drill recognition, romaji, and listening all in one place</p>
+    </div>
+    <div class="hquiz-mode-row">
+      <button class="quiz-mode-btn active" onclick="setHMode('read',this)">Hiragana → Romaji</button>
+      <button class="quiz-mode-btn" onclick="setHMode('write',this)">Romaji → Hiragana</button>
+      <button class="quiz-mode-btn" onclick="setHMode('listen',this)">🔊 Listen → Choose</button>
+    </div>
+    <div class="quiz-card">
+      <div id="hquiz-display" class="quiz-display">あ</div>
+      <span id="hquiz-tag" class="quiz-category-tag">HIRAGANA</span>
+      <div class="quiz-speak-row">
+        <button class="quiz-speak-btn" id="hquiz-speak-btn" onclick="speakHQuizCurrent()">🔊 Pronounce</button>
+      </div>
+      <div class="quiz-options" id="hquiz-options"></div>
+      <div class="quiz-feedback" id="hquiz-feedback"></div>
+      <div class="quiz-bottom">
+        <div class="quiz-score" id="hquiz-score">0 / 0</div>
+        <div class="quiz-progress"><div class="quiz-progress-fill" id="hquiz-prog" style="width:0%"></div></div>
+        <button class="btn-next" onclick="nextHQ()">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QUIZ TAB -->
+<div id="tab-quiz" class="tab-content">
+  <div class="quiz-wrap">
+    <div class="quiz-header">
+      <h2>Test Your Memory</h2>
+      <p>Choose the correct meaning or reading for each kanji</p>
+    </div>
+    <div class="quiz-mode-row">
+      <button class="quiz-mode-btn active" onclick="setMode('meaning',this)">Kanji → Meaning</button>
+      <button class="quiz-mode-btn" onclick="setMode('reading',this)">Kanji → Kunyomi</button>
+      <button class="quiz-mode-btn" onclick="setMode('reverse',this)">Meaning → Kanji</button>
+    </div>
+    <div class="quiz-card">
+      <div id="quiz-display" class="quiz-display">日</div>
+      <span id="quiz-cat-tag" class="quiz-category-tag">TIME & NUMBERS</span>
+      <div class="quiz-speak-row">
+        <button class="quiz-speak-btn" id="quiz-speak-btn" onclick="speakQuizCurrent()">🔊 Pronounce kunyomi</button>
+      </div>
+      <div class="quiz-options" id="quiz-options"></div>
+      <div class="quiz-feedback" id="quiz-feedback"></div>
+      <div class="quiz-bottom">
+        <div class="quiz-score" id="quiz-score">0 / 0</div>
+        <div class="quiz-progress"><div class="quiz-progress-fill" id="quiz-prog" style="width:0%"></div></div>
+        <button class="btn-next" onclick="nextQ()">Next →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LOOK-ALIKES TAB -->
+<div id="tab-lookalikes" class="tab-content">
+  <div id="lookalikes-container" style="padding-top:32px"></div>
+</div>
+
+<!-- MEMORY THEATER TAB -->
+<div id="tab-theater" class="tab-content">
+<div class="theater-wrap">
+  <div class="theater-intro">
+    <h2>🎭 Memory Theater</h2>
+    <p>Every kanji started as a picture. See the hidden stories, pictograph origins, and radical combinations that make them unforgettable.</p>
+  </div>
+
+  <div class="theater-tip">
+    <div class="theater-tip-icon">💡</div>
+    <div class="theater-tip-text"><strong>How to use this:</strong> Each card shows (1) an illustrated scene from the kanji's visual story, (2) the radical building blocks it's made from, and (3) a vivid mnemonic. The stranger the story, the better it sticks — your brain remembers bizarre images far longer than plain facts.</div>
+  </div>
+
+  <!-- GROUP: Pictographs — kanji that ARE drawings -->
+  <div class="theater-group">
+    <div class="theater-group-title">🖼 Pictographs — Kanji That Are Actual Drawings <span class="tc-origin origin-pictograph">Pictograph</span></div>
+    <div class="theater-cards" id="tc-pictographs"></div>
+  </div>
+
+  <!-- GROUP: Days of the Week -->
+  <div class="theater-group">
+    <div class="theater-group-title">📅 Days of the Week — Two Facts for the Price of One <span class="tc-origin origin-semantic">Bonus Hook</span></div>
+    <div class="theater-cards" id="tc-weekdays"></div>
+  </div>
+
+  <!-- GROUP: Compound kanji -->
+  <div class="theater-group">
+    <div class="theater-group-title">🧩 Compound Kanji — Radical Equations <span class="tc-origin origin-compound">Compound</span></div>
+    <div class="theater-cards" id="tc-compounds"></div>
+  </div>
+
+  <!-- GROUP: Direction / Position -->
+  <div class="theater-group">
+    <div class="theater-group-title">🧭 Direction & Position — Where Things Live <span class="tc-origin origin-semantic">Semantic</span></div>
+    <div class="theater-cards" id="tc-direction"></div>
+  </div>
+
+</div>
+</div>
+
+
+<div id="tab-cheatsheet" class="tab-content">
+  <div style="padding:32px 0">
+    <h2 style="font-family:'Kaisei Decol',serif;color:var(--gold);margin-bottom:6px;font-size:1.5rem">Quick Reference Cheatsheet</h2>
+    <p style="color:var(--text-dim);font-style:italic;font-size:0.9rem;margin-bottom:4px">All 103 N5 kanji — kunyomi in gold, on'yomi below</p>
+    <table class="cheatsheet-table" id="cheatsheet-table">
+      <thead>
+        <tr>
+          <th>Kanji</th>
+          <th>Meaning</th>
+          <th>Kunyomi · On'yomi</th>
+          <th>Memory Hook</th>
+        </tr>
+      </thead>
+      <tbody id="cheatsheet-body"></tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- /wrapper -->
+
+<script>
+// =============================================
+// FULL N5 KANJI DATA
+// =============================================
+const categories = [
+  {
+    id: 'numbers',
+    icon: '🔢',
+    title: 'Numbers',
+    color: '#e8c96a',
+    kanji: [
+      { k:'一', meaning:'One', kun:'ひと(つ)', on:'イチ', mnemonic:'A single horizontal stroke — one line, one meaning. Simple as one.' },
+      { k:'二', meaning:'Two', kun:'ふた(つ)', on:'ニ', mnemonic:'Two horizontal strokes stacked — exactly 2 lines for 2.' },
+      { k:'三', meaning:'Three', kun:'み(っつ)', on:'サン', mnemonic:'Three parallel lines — count them: 1, 2, 3.' },
+      { k:'四', meaning:'Four', kun:'よ(っつ)・よん', on:'シ', mnemonic:'A box with two legs inside — imagine four legs of a table cramped in a box.' },
+      { k:'五', meaning:'Five', kun:'いつ(つ)', on:'ゴ', mnemonic:'Looks like a balance scale with 5 points — hold up all 5 fingers.' },
+      { k:'六', meaning:'Six', kun:'む(っつ)', on:'ロク', mnemonic:'A hat with two short legs — like a hexagonal hut seen from the side (6 sides).' },
+      { k:'七', meaning:'Seven', kun:'なな(つ)', on:'シチ', mnemonic:'Like a 7 rotated — a cutting stroke across a line, seven strokes of luck.' },
+      { k:'八', meaning:'Eight', kun:'や(っつ)', on:'ハチ', mnemonic:'Two strokes spreading apart like legs — an octopus opening 8 arms wide.' },
+      { k:'九', meaning:'Nine', kun:'ここの(つ)', on:'キュウ・ク', mnemonic:'Like the number 9 — a hook curling back, one step before 10.' },
+      { k:'十', meaning:'Ten', kun:'とお', on:'ジュウ', mnemonic:'A cross / plus sign — a perfect crossroads of all ten fingers.' },
+      { k:'百', meaning:'Hundred', kun:'(もも)', on:'ヒャク', mnemonic:'One (一) on top of white (白) — imagine 100 white sheets of paper with one mark on top.' },
+      { k:'千', meaning:'Thousand', kun:'ち', on:'セン', mnemonic:'Ten (十) with an extra stroke leaning — a thousand soldiers standing at attention, slightly tilted by the weight of numbers.' },
+      { k:'万', meaning:'Ten Thousand', kun:'よろず', on:'マン', mnemonic:'A curved stroke over a cross — like a swirling whirlpool of ten thousand grains of sand.' },
+    ]
+  },
+  {
+    id: 'time',
+    icon: '⏰',
+    title: 'Time & Calendar',
+    color: '#5a9ec8',
+    kanji: [
+      { k:'日', meaning:'Sun / Day', kun:'ひ・か', on:'ニチ・ジツ', mnemonic:'A rectangular sun with a line through its middle — the line is the heat ray blazing through the sky.' },
+      { k:'月', meaning:'Moon / Month', kun:'つき', on:'ゲツ・ガツ', mnemonic:'A crescent moon — the two strokes inside are like craters on the moon\'s surface.' },
+      { k:'年', meaning:'Year', kun:'とし', on:'ネン', mnemonic:'Like a person carrying a sheaf of grain on their back — farmers count years by each harvest.' },
+      { k:'時', meaning:'Time / Hour', kun:'とき', on:'ジ', mnemonic:'Sun (日) + temple (寺) — monks at a temple ring the bell every hour to mark time.' },
+      { k:'分', meaning:'Minute / Part', kun:'わ(かる)・ふん', on:'フン・ブン', mnemonic:'A sword cutting something in two — dividing time into parts (minutes).' },
+      { k:'間', meaning:'Between / Gap', kun:'あいだ・ま', on:'カン・ケン', mnemonic:'A gate (門) with a sun (日) peeking through — sunlight coming through the gap between gate doors.' },
+      { k:'週', meaning:'Week', kun:'(一)しゅう', on:'シュウ', mnemonic:'Going around (⻌) through paddy fields (田 area) and soil — one full circuit = one week.' },
+      { k:'今', meaning:'Now / Present', kun:'いま', on:'コン・キン', mnemonic:'A lid pressing down on a person — pinned to THIS exact moment in time, right NOW.' },
+      { k:'毎', meaning:'Every / Each', kun:'まい', on:'マイ', mnemonic:'A mother figure with extra strokes — a mother who EVERY day takes care of her family.' },
+      { k:'半', meaning:'Half', kun:'なか(ば)', on:'ハン', mnemonic:'A vertical line cutting through a horn shape — split perfectly in half down the middle.' },
+      { k:'前', meaning:'Before / Front', kun:'まえ', on:'ゼン', mnemonic:'A moon (月) with a sword (刀) beneath — a moonlit night before a duel, standing at the front.' },
+      { k:'後', meaning:'After / Behind', kun:'あと・うし(ろ)', on:'ゴ・コウ', mnemonic:'Walking (彳) with a twisted thread (幺) and long step (夂) — dragging your feet, always falling behind.' },
+    ]
+  },
+  {
+    id: 'nature',
+    icon: '🌿',
+    title: 'Nature & Elements',
+    color: '#4a9e7a',
+    kanji: [
+      { k:'山', meaning:'Mountain', kun:'やま', on:'サン', mnemonic:'Three peaks — the tallest in the middle, two smaller ones on the sides. A mountain skyline.' },
+      { k:'川', meaning:'River', kun:'かわ', on:'セン', mnemonic:'Three vertical flowing strokes — water trickling down between banks, like looking at a river from above.' },
+      { k:'水', meaning:'Water', kun:'みず', on:'スイ', mnemonic:'A flowing drop with splashes on each side — water splashing out of a bowl.' },
+      { k:'火', meaning:'Fire', kun:'ひ', on:'カ', mnemonic:'A person (人) jumping above two small flames — they\'re standing in FIRE, sparks flying at their feet.' },
+      { k:'木', meaning:'Tree / Wood', kun:'き', on:'モク・ボク', mnemonic:'A trunk with roots below and branches above — a perfect picture of a tree.' },
+      { k:'林', meaning:'Forest (small)', kun:'はやし', on:'リン', mnemonic:'Two trees (木木) side by side — a small grove, double the trees.' },
+      { k:'森', meaning:'Forest (deep)', kun:'もり', on:'シン', mnemonic:'Three trees (木木木) — a deep, dense forest, triple the trees. More than a grove.' },
+      { k:'花', meaning:'Flower', kun:'はな', on:'カ', mnemonic:'Grass (艹) above a changing person (化) — plants that transform (bloom) beautifully.' },
+      { k:'草', meaning:'Grass', kun:'くさ', on:'ソウ', mnemonic:'Grass radical (艹) on top, early/dawn (早) below — grass that grows from early morning.' },
+      { k:'空', meaning:'Sky / Empty', kun:'そら・から', on:'クウ', mnemonic:'A cave (穴) above work (工) — workers digging a cave hollow out empty sky space above them.' },
+      { k:'雨', meaning:'Rain', kun:'あめ', on:'ウ', mnemonic:'A roof with four drops falling beneath it — raindrops visible under the sky\'s roof.' },
+      { k:'天', meaning:'Sky / Heaven', kun:'あめ・そら', on:'テン', mnemonic:'Big (大) with a line above — something above even the biggest person is the sky and heaven.' },
+      { k:'地', meaning:'Ground / Earth', kun:'ち・じ', on:'チ・ジ', mnemonic:'Soil/earth (土) beside a coiling snake shape (也) — the earth that snakes coil upon.' },
+      { k:'海', meaning:'Sea / Ocean', kun:'うみ', on:'カイ', mnemonic:'Water (氵) beside mother (母) — the sea is the mother of all water, nurturing all life.' },
+      { k:'石', meaning:'Stone / Rock', kun:'いし', on:'セキ・コク', mnemonic:'A cliff (厂) with a mouth (口) — a rock face so large it seems to open like a gaping mouth.' },
+    ]
+  },
+  {
+    id: 'people',
+    icon: '👤',
+    title: 'People & Family',
+    color: '#d4523a',
+    kanji: [
+      { k:'人', meaning:'Person', kun:'ひと', on:'ジン・ニン', mnemonic:'Two legs striding forward — a person walking, seen from the side. The simplest human figure.' },
+      { k:'男', meaning:'Man / Male', kun:'おとこ', on:'ダン・ナン', mnemonic:'Rice field (田) with strength (力) — a man working the fields with physical strength.' },
+      { k:'女', meaning:'Woman / Female', kun:'おんな', on:'ジョ・ニョ', mnemonic:'A figure kneeling gracefully — an elegant seated pose, traditionally associated with femininity.' },
+      { k:'子', meaning:'Child', kun:'こ', on:'シ・ス', mnemonic:'A baby with arms flailing and legs bundled — a child wrapped in swaddling with waving arms.' },
+      { k:'父', meaning:'Father', kun:'ちち', on:'フ', mnemonic:'Two hands crossed above, holding something — a father raising his hands in authority or discipline.' },
+      { k:'母', meaning:'Mother', kun:'はは', on:'ボ', mnemonic:'A woman figure with two dots — the dots represent a nursing mother\'s life-giving nourishment.' },
+      { k:'友', meaning:'Friend', kun:'とも', on:'ユウ', mnemonic:'Two hands (又) reaching out — friends always extend a hand to help each other.' },
+      { k:'名', meaning:'Name', kun:'な', on:'メイ・ミョウ', mnemonic:'Evening (夕) plus mouth (口) — in the dark of evening you call out someone\'s NAME to find them.' },
+      { k:'先', meaning:'Before / Ahead', kun:'さき', on:'セン', mnemonic:'A person walking with something out front — pushing ahead, leading the way.' },
+      { k:'生', meaning:'Life / Birth', kun:'いきる・うまれる', on:'セイ・ショウ', mnemonic:'A plant sprouting from the earth — new life pushing up from the ground, being born.' },
+      { k:'学', meaning:'Study / Learn', kun:'まなぶ', on:'ガク', mnemonic:'Two hands (爻) over a roof (冖) with a child (子) — a child under a roof with hands ready to learn.' },
+    ]
+  },
+  {
+    id: 'body',
+    icon: '👁',
+    title: 'Body & Health',
+    color: '#c86878',
+    kanji: [
+      { k:'目', meaning:'Eye', kun:'め', on:'モク・ボク', mnemonic:'A rectangular eye rotated upright with a pupil line — an eye staring straight at you.' },
+      { k:'耳', meaning:'Ear', kun:'みみ', on:'ジ', mnemonic:'A box with protruding lines on the side — like an ear with its canal passages jutting out.' },
+      { k:'口', meaning:'Mouth', kun:'くち', on:'コウ・ク', mnemonic:'A simple square mouth — open wide and say "口口口"!' },
+      { k:'手', meaning:'Hand', kun:'て', on:'シュ', mnemonic:'Four fingers plus a crossing palm line — a hand with outstretched fingers.' },
+      { k:'足', meaning:'Foot / Enough', kun:'あし・たりる', on:'ソク', mnemonic:'A mouth (口) with two legs below — a head above two walking feet.' },
+      { k:'力', meaning:'Power / Strength', kun:'ちから', on:'リョク・リキ', mnemonic:'A flexed arm muscle — the curved stroke is a bicep bulging with power.' },
+      { k:'気', meaning:'Energy / Spirit', kun:'き・け', on:'キ・ケ', mnemonic:'Steam (气) rising from rice (米) — the life-force energy steaming from nourishment.' },
+    ]
+  },
+  {
+    id: 'places',
+    icon: '🏘',
+    title: 'Places & Directions',
+    color: '#9a7ec8',
+    kanji: [
+      { k:'国', meaning:'Country', kun:'くに', on:'コク', mnemonic:'A jewel (玉) inside a border (囗) — a precious country protected within its borders.' },
+      { k:'県', meaning:'Prefecture', kun:'(けん)', on:'ケン', mnemonic:'A suspended eye watching over smaller areas — a prefecture watching over its regions.' },
+      { k:'町', meaning:'Town', kun:'まち', on:'チョウ', mnemonic:'Rice fields (田) beside a nail/stake (丁) — stakes driven in to mark the boundaries of a town.' },
+      { k:'村', meaning:'Village', kun:'むら', on:'ソン', mnemonic:'Tree (木) beside inch/measure (寸) — small measured plots of wood and land: a village.' },
+      { k:'道', meaning:'Road / Way', kun:'みち', on:'ドウ・トウ', mnemonic:'Walking (⻌) with a head leading (首) — a head leading the way down a road.' },
+      { k:'上', meaning:'Up / Above', kun:'うえ・あがる', on:'ジョウ', mnemonic:'A short line above a longer line — something sitting on top, going UP.' },
+      { k:'下', meaning:'Down / Below', kun:'した・さがる', on:'カ・ゲ', mnemonic:'A short line hanging below a longer line — something dangling DOWN.' },
+      { k:'中', meaning:'Middle / Inside', kun:'なか', on:'チュウ', mnemonic:'A line piercing through the middle of a box — exactly in the CENTER.' },
+      { k:'外', meaning:'Outside', kun:'そと', on:'ガイ・ゲ', mnemonic:'Evening (夕) beside divination (卜) — fortune-telling done OUTSIDE at dusk.' },
+      { k:'東', meaning:'East', kun:'ひがし', on:'トウ', mnemonic:'The sun (日) rising through a tree (木) — the sun rises in the EAST, piercing through the treetops.' },
+      { k:'西', meaning:'West', kun:'にし', on:'セイ・サイ', mnemonic:'A bird settling into its nest — birds return to roost in the WEST as the sun sets.' },
+      { k:'南', meaning:'South', kun:'みなみ', on:'ナン', mnemonic:'Ten (十) with inner shapes — a compass pointing toward warm southern lands.' },
+      { k:'北', meaning:'North', kun:'きた', on:'ホク', mnemonic:'Two people sitting back-to-back — turning their backs to the cold NORTH wind.' },
+      { k:'右', meaning:'Right (direction)', kun:'みぎ', on:'ウ・ユウ', mnemonic:'A hand (又) by a mouth (口) — using your RIGHT hand to eat (mouth).' },
+      { k:'左', meaning:'Left (direction)', kun:'ひだり', on:'サ', mnemonic:'A hand (又) by a tool/work (工) — using your LEFT hand to hold a tool while working.' },
+    ]
+  },
+  {
+    id: 'school',
+    icon: '📚',
+    title: 'School & Knowledge',
+    color: '#e8c96a',
+    kanji: [
+      { k:'校', meaning:'School', kun:'(こう)', on:'コウ', mnemonic:'Tree (木) beside cross/intersection (交) — a place where many paths of knowledge cross, like trees meeting.' },
+      { k:'文', meaning:'Writing / Letter', kun:'ふみ', on:'ブン・モン', mnemonic:'A person with crossed legs and outstretched arms — like someone writing or gesturing to communicate.' },
+      { k:'字', meaning:'Character / Letter', kun:'じ', on:'ジ', mnemonic:'A child (子) under a roof (宀) — a child indoors learning to write characters.' },
+      { k:'語', meaning:'Language / Word', kun:'かたる', on:'ゴ', mnemonic:'Speech (言) beside I/self (吾) — MY speech, my language and words.' },
+      { k:'読', meaning:'Read', kun:'よむ', on:'ドク・トク', mnemonic:'Speech/words (言) beside sell (売) — words that sell ideas: reading them.' },
+      { k:'書', meaning:'Write', kun:'かく', on:'ショ', mnemonic:'A brush (聿) with a sun (日) — writing by sunlight, the brush creating characters.' },
+      { k:'聞', meaning:'Hear / Listen', kun:'きく', on:'ブン・モン', mnemonic:'An ear (耳) inside a gate (門) — pressing your ear against the gate to listen and hear.' },
+      { k:'話', meaning:'Talk / Speak', kun:'はなす', on:'ワ', mnemonic:'Speech (言) beside tongue (舌) — the tongue producing speech and conversation.' },
+      { k:'見', meaning:'See / Look', kun:'みる', on:'ケン', mnemonic:'An eye (目) on legs — an eye that walks around to SEE things.' },
+      { k:'言', meaning:'Say / Words', kun:'いう', on:'ゲン・ゴン', mnemonic:'A mouth (口) sending out waves — sound waves coming out of a mouth, saying words.' },
+    ]
+  },
+  {
+    id: 'daily',
+    icon: '🏠',
+    title: 'Daily Life',
+    color: '#5a9ec8',
+    kanji: [
+      { k:'食', meaning:'Eat / Food', kun:'たべる', on:'ショク・ジキ', mnemonic:'A person (人) with a lid and container beneath — lifting the lid off a dish to EAT.' },
+      { k:'飲', meaning:'Drink', kun:'のむ', on:'イン', mnemonic:'Food/eat radical (食) with an exhale (欠) — yawning open-mouthed to DRINK.' },
+      { k:'出', meaning:'Exit / Go out', kun:'でる', on:'シュツ', mnemonic:'Two mountains stacked — a mountain growing up through another, pushing OUT.' },
+      { k:'入', meaning:'Enter / Go in', kun:'はいる', on:'ニュウ', mnemonic:'Two strokes coming to a point — converging inward, entering a single point.' },
+      { k:'来', meaning:'Come', kun:'くる', on:'ライ', mnemonic:'A tree with a person approaching from both sides — people COMING toward the tree.' },
+      { k:'行', meaning:'Go', kun:'いく', on:'コウ・ギョウ', mnemonic:'A crossroads (the full radical 行) — standing at a crossroads, about to GO somewhere.' },
+      { k:'帰', meaning:'Return', kun:'かえる', on:'キ', mnemonic:'A broom sweeping homeward — sweeping your way back, RETURNING home.' },
+      { k:'買', meaning:'Buy', kun:'かう', on:'バイ', mnemonic:'A net (罒) over money (貝) — catching money in a net to BUY things.' },
+      { k:'売', meaning:'Sell', kun:'うる', on:'バイ', mnemonic:'A person on top of a container shape — holding things up to SELL them.' },
+      { k:'休', meaning:'Rest', kun:'やすむ', on:'キュウ', mnemonic:'A person (人) leaning against a tree (木) — a person resting in the shade of a tree.' },
+      { k:'立', meaning:'Stand', kun:'たつ', on:'リツ・リュウ', mnemonic:'A person standing on the ground with arms out — feet planted, standing tall.' },
+      { k:'座', meaning:'Sit / Seat', kun:'すわる', on:'ザ', mnemonic:'Two people (人人) under a roof on the ground (土) — people sitting together inside.' },
+    ]
+  },
+  {
+    id: 'descriptive',
+    icon: '✨',
+    title: 'Descriptions & Qualities',
+    color: '#4a9e7a',
+    kanji: [
+      { k:'大', meaning:'Big / Large', kun:'おおきい', on:'ダイ・タイ', mnemonic:'A person spreading both arms wide — "Look how BIG I am!" Arms outstretched = large.' },
+      { k:'小', meaning:'Small / Little', kun:'ちいさい', on:'ショウ', mnemonic:'A vertical line with two tiny dots shrinking away on each side — everything is getting SMALL.' },
+      { k:'高', meaning:'High / Tall', kun:'たかい', on:'コウ', mnemonic:'A tall tower with a mouth at the base — the tall pagoda-like structure reaching high up.' },
+      { k:'安', meaning:'Cheap / Safe', kun:'やすい', on:'アン', mnemonic:'A woman (女) under a roof (宀) — a woman safe at home, at ease and comfortable (safe, cheap).' },
+      { k:'新', meaning:'New', kun:'あたらしい', on:'シン', mnemonic:'A standing person (立) with a tree (木) and an axe (斤) — freshly cut wood is NEW lumber.' },
+      { k:'古', meaning:'Old', kun:'ふるい', on:'コ', mnemonic:'Ten (十) mouths (口) — ten generations of mouths have spoken of how OLD this is.' },
+      { k:'多', meaning:'Many / Much', kun:'おおい', on:'タ', mnemonic:'Two moons (夕夕) — two evenings worth of things: MANY accumulated.' },
+      { k:'少', meaning:'Few / Little', kun:'すくない', on:'ショウ', mnemonic:'Small (小) with a slash cutting one dot away — taking away from small makes it even fewer.' },
+      { k:'長', meaning:'Long / Leader', kun:'ながい', on:'チョウ', mnemonic:'A person with very long flowing hair — their hair grows LONG and trails behind them.' },
+      { k:'白', meaning:'White', kun:'しろ', on:'ハク・ビャク', mnemonic:'A sun (日) with a small stroke on top — sunlight at its purest is WHITE, blinding bright.' },
+      { k:'赤', meaning:'Red', kun:'あか', on:'セキ・シャク', mnemonic:'A big (大) fire (赤) — big fires burn RED. The heat beneath makes everything red.' },
+      { k:'青', meaning:'Blue / Green', kun:'あお', on:'セイ・ショウ', mnemonic:'Lush growing (生) grass/moon — the deep BLUE-GREEN color of nature thriving.' },
+    ]
+  },
+  {
+    id: 'objects',
+    icon: '🔑',
+    title: 'Objects & Things',
+    color: '#c86878',
+    kanji: [
+      { k:'本', meaning:'Book / Origin', kun:'ほん・もと', on:'ホン', mnemonic:'A tree (木) with a line at its base — marking the ROOT of the tree. A book holds the root of knowledge.' },
+      { k:'車', meaning:'Car / Vehicle', kun:'くるま', on:'シャ', mnemonic:'A wheel with spokes seen from above — the top and bottom are the axle, the cross is the spokes.' },
+      { k:'金', meaning:'Gold / Money', kun:'かね', on:'キン・コン', mnemonic:'A person under an umbrella with two gold nuggets at the feet — a rich person standing over GOLD.' },
+      { k:'円', meaning:'Yen / Circle', kun:'まるい', on:'エン', mnemonic:'A gate (門 simplified) with two small legs — a coin rolling, round and circular like YEN.' },
+      { k:'電', meaning:'Electricity', kun:'でんき', on:'デン', mnemonic:'Rain (雨) with lightning bolts (申) beneath — electric lightning from a thunderstorm.' },
+      { k:'話', meaning:'Story / Speak', kun:'はなし', on:'ワ', mnemonic:'Speech (言) beside a tongue (舌) — words flowing from the tongue in conversation.' },
+      { k:'紙', meaning:'Paper', kun:'かみ', on:'シ', mnemonic:'Thread/fiber (糸) beside an clan/lineage (氏) — fibers of cloth material processed into PAPER.' },
+      { k:'店', meaning:'Shop / Store', kun:'みせ', on:'テン', mnemonic:'A roof (广) with divination (占) — a fortune-teller\'s tent, a place of business, a shop.' },
+    ]
+  },
+  {
+    id: 'verbs',
+    icon: '⚡',
+    title: 'Action Concepts',
+    color: '#9a7ec8',
+    kanji: [
+      { k:'王', meaning:'King', kun:'おう', on:'オウ', mnemonic:'Three horizontal levels (heaven, human, earth) connected by a ruler — the KING connecting all realms.' },
+      { k:'正', meaning:'Correct / Right', kun:'ただしい', on:'セイ・ショウ', mnemonic:'One (一) step (止) — taking one correct step in the right direction.' },
+      { k:'思', meaning:'Think', kun:'おもう', on:'シ', mnemonic:'Rice field (田) over heart (心) — the heart/mind cultivating thoughts like a rice field.' },
+      { k:'知', meaning:'Know', kun:'しる', on:'チ', mnemonic:'An arrow (矢) beside a mouth (口) — an arrow-sharp mind speaking what it KNOWS.' },
+      { k:'作', meaning:'Make / Create', kun:'つくる', on:'サク・サ', mnemonic:'Person (亻) beside a past/former shape (乍) — a craftsperson MAKING something new from old methods.' },
+      { k:'使', meaning:'Use', kun:'つかう', on:'シ', mnemonic:'A person (亻) beside an official (吏) — a person employing an official to USE their services.' },
+      { k:'開', meaning:'Open', kun:'あける・ひらく', on:'カイ', mnemonic:'Hands (廾) opening a gate latch (開) — two hands pushing a gate OPEN.' },
+      { k:'閉', meaning:'Close', kun:'しめる', on:'ヘイ', mnemonic:'A gate (門) with a closed latch bar inside — the gate firmly CLOSED and latched.' },
+      { k:'死', meaning:'Death / Die', kun:'しぬ', on:'シ', mnemonic:'Bones (歹) beside a person kneeling (匕) — a person collapsed beside bones: DEATH.' },
+    ]
+  },
+  {
+    id: 'kanji_family',
+    icon: '🔗',
+    title: '人 Family (Look-alikes)',
+    color: '#e8c96a',
+    kanji: [
+      { k:'天', meaning:'Sky / Heaven', kun:'あめ・そら', on:'テン', mnemonic:'Big (大) with a line above their head — something above even the biggest person is the SKY.' },
+      { k:'太', meaning:'Fat / Plump', kun:'ふとい', on:'タイ', mnemonic:'Big (大) with a belly dot — the extra dot is the belly button of someone quite FAT.' },
+      { k:'夫', meaning:'Husband', kun:'おっと', on:'フウ', mnemonic:'Big (大) with a hair pin (一) on top — a grown man who has earned the right to wear a top-knot pin.' },
+      { k:'犬', meaning:'Dog', kun:'いぬ', on:'ケン', mnemonic:'Big (大) with a small dot — your faithful dog always at your heels, a tiny dot companion.' },
+      { k:'矢', meaning:'Arrow', kun:'や', on:'シ', mnemonic:'A person (人) with a top bar and hook — like an archer drawing their arm back, an ARROW.' },
+      { k:'失', meaning:'Lose / Miss', kun:'うしなう', on:'シツ', mnemonic:'Arrow (矢) with the bottom swept away — the arrow missed, it\'s LOST its target.' },
+      { k:'火', meaning:'Fire', kun:'ひ', on:'カ', mnemonic:'A person (人) leaping above two small flame strokes — their feet are on FIRE, flames licking up.' },
+      { k:'炎', meaning:'Flame / Blaze', kun:'ほのお', on:'エン', mnemonic:'Fire (火) doubled — two fires stacked is a raging BLAZE, twice as intense.' },
+    ]
+  }
+];
+
+// Flatten for quiz
+const allKanjiFlat = categories.flatMap(c => c.kanji.map(k => ({ ...k, category: c.title, catColor: c.color })));
+
+// =============================================
+// LOOK-ALIKE GROUPS DATA
+// =============================================
+const lookalikeGroups = [
+  {
+    id: 'hito',
+    color: '#e8c96a',
+    rootChar: '人',
+    title: '人 — The Person Family',
+    desc: 'All built from the two-legged "person" shape. One extra stroke changes everything.',
+    members: [
+      { k:'人', meaning:'Person', kun:'ひと', diff:'ROOT', mnemonic:'Two legs striding forward — the simplest human figure walking.', isRoot: true },
+      { k:'大', meaning:'Big', kun:'おおきい', diff:'+arm stroke', mnemonic:'Person with arms spread wide — "Look how BIG I am!" The horizontal bar = outstretched arms.' },
+      { k:'天', meaning:'Sky', kun:'そら', diff:'+line above 大', mnemonic:'Big (大) with one line above their head — something ABOVE even the tallest person is the sky.' },
+      { k:'太', meaning:'Fat', kun:'ふとい', diff:'+belly dot', mnemonic:'Big (大) with a dot on the belly — that dot is the belly button poking out from being FAT.' },
+      { k:'夫', meaning:'Husband', kun:'おっと', diff:'+hairpin on 大', mnemonic:'Big (大) with a horizontal pin on top — an adult man\'s ceremonial top-knot hair pin = HUSBAND.' },
+      { k:'犬', meaning:'Dog', kun:'いぬ', diff:'+small dot', mnemonic:'Big (大) with a tiny flea dot (upper right) — your DOG always has a flea following it.' },
+      { k:'矢', meaning:'Arrow', kun:'や', diff:'+hook top', mnemonic:'Person pulling back their arm with an arrowhead on top — an archer drawing an ARROW.' },
+      { k:'失', meaning:'Lose', kun:'うしなう', diff:'矢 + swept base', mnemonic:'Arrow (矢) whose bottom stroke sweeps off the page — the arrow LOST its target and flew away.' },
+    ]
+  },
+  {
+    id: 'hi',
+    color: '#d4523a',
+    rootChar: '火',
+    title: '火 — The Fire Family',
+    desc: 'Fire doubles, triples, and transforms into related heat concepts.',
+    members: [
+      { k:'火', meaning:'Fire', kun:'ひ', diff:'ROOT', mnemonic:'A person (人) jumping above two small flame strokes — feet on FIRE, sparks flying upward.', isRoot: true },
+      { k:'炎', meaning:'Blaze / Flame', kun:'ほのお', diff:'火＋火 stacked', mnemonic:'Two fires (火+火) stacked — double the fire = a raging BLAZE. If one fire is hot, two are infernal.' },
+      { k:'灯', meaning:'Lamp / Light', kun:'ともしび', diff:'火＋丁', mnemonic:'Fire (火) beside a nail/peg (丁) — a flame fixed to a peg: a LAMP or torch.' },
+      { k:'焼', meaning:'Burn / Roast', kun:'やく', diff:'火＋shape', mnemonic:'Fire on the left, a complex shape on the right — something being consumed and BURNED by fire.' },
+    ]
+  },
+  {
+    id: 'ki',
+    color: '#4a9e7a',
+    rootChar: '木',
+    title: '木 — The Tree Family',
+    desc: 'One tree, two trees, three trees — the forest grows with each addition.',
+    members: [
+      { k:'木', meaning:'Tree / Wood', kun:'き', diff:'ROOT', mnemonic:'A trunk with branches above and roots below — the perfect picture of a TREE.', isRoot: true },
+      { k:'林', meaning:'Grove', kun:'はやし', diff:'木＋木', mnemonic:'Two trees (木木) side by side — a small GROVE, double the trees, double the shade.' },
+      { k:'森', meaning:'Deep Forest', kun:'もり', diff:'木＋木＋木', mnemonic:'Three trees (木木木) — a deep, dense FOREST. More than a grove, wild and ancient.' },
+      { k:'本', meaning:'Book / Root', kun:'ほん・もと', diff:'木＋base line', mnemonic:'Tree (木) with a line marking the ROOT — the foundation. A BOOK holds the root of all knowledge.' },
+      { k:'休', meaning:'Rest', kun:'やすむ', diff:'人＋木', mnemonic:'A person (人) leaning against a tree (木) — resting in the shade on a hot day. Perfect REST.' },
+    ]
+  },
+  {
+    id: 'kuchi',
+    color: '#c86878',
+    rootChar: '口',
+    title: '口 — The Mouth Family',
+    desc: 'The simple square mouth appears inside dozens of kanji as a component.',
+    members: [
+      { k:'口', meaning:'Mouth', kun:'くち', diff:'ROOT', mnemonic:'A simple open square — a wide-open MOUTH saying "ahhhh". The simplest body part to draw.', isRoot: true },
+      { k:'名', meaning:'Name', kun:'な', diff:'夕＋口', mnemonic:'Evening (夕) above a mouth (口) — in darkness you call someone\'s NAME out loud to find them.' },
+      { k:'知', meaning:'Know', kun:'しる', diff:'矢＋口', mnemonic:'Arrow (矢) beside a mouth (口) — an arrow-sharp mind speaking what it KNOWS with precision.' },
+      { k:'言', meaning:'Say / Words', kun:'いう', diff:'口＋lines', mnemonic:'A mouth (口) with three lines above it — sound WAVES flowing upward from a speaking mouth.' },
+      { k:'古', meaning:'Old', kun:'ふるい', diff:'十＋口', mnemonic:'Ten (十) generations of mouths (口) — ten sets of people have spoken of how very OLD this is.' },
+      { k:'右', meaning:'Right', kun:'みぎ', diff:'又＋口', mnemonic:'A hand (又) by a mouth (口) — your RIGHT hand is the one you use to eat (bring food to mouth).' },
+    ]
+  },
+  {
+    id: 'hi_sun',
+    color: '#5a9ec8',
+    rootChar: '日',
+    title: '日 — The Sun Family',
+    desc: 'The sun radical powers time, light, and many everyday concepts.',
+    members: [
+      { k:'日', meaning:'Sun / Day', kun:'ひ・か', diff:'ROOT', mnemonic:'A rectangle with a line through it — the blazing sun with its equatorial heat ray across the middle.', isRoot: true },
+      { k:'明', meaning:'Bright', kun:'あかるい', diff:'日＋月', mnemonic:'Sun (日) beside moon (月) — when BOTH the sun AND moon shine together, everything is BRIGHT.' },
+      { k:'時', meaning:'Time / Hour', kun:'とき', diff:'日＋寺', mnemonic:'Sun (日) plus temple (寺) — monks at a temple ring the bell every hour, marking TIME by the sun.' },
+      { k:'早', meaning:'Early', kun:'はやい', diff:'日＋十', mnemonic:'Sun (日) with a cross below — the sun just crossing the horizon at dawn: it\'s EARLY morning.' },
+      { k:'春', meaning:'Spring', kun:'はる', diff:'日＋plants', mnemonic:'Sun (日) at the base with plants growing above — the spring sun pushing plants up from the earth.' },
+    ]
+  },
+  {
+    id: 'mizu',
+    color: '#5a9ec8',
+    rootChar: '水',
+    title: '水・氵 — The Water Family',
+    desc: 'Water as a standalone or the 3-drop radical (氵) on the left of dozens of kanji.',
+    members: [
+      { k:'水', meaning:'Water', kun:'みず', diff:'ROOT', mnemonic:'A flowing drop with splashes — water bursting from a bowl, droplets flying left and right.', isRoot: true },
+      { k:'海', meaning:'Sea', kun:'うみ', diff:'氵＋母', mnemonic:'Water (氵) beside mother (母) — the SEA is the mother of all water, the source of all life.' },
+      { k:'川', meaning:'River', kun:'かわ', diff:'3 flow lines', mnemonic:'Three vertical strokes flowing downward — looking straight down at a RIVER flowing between banks.' },
+      { k:'池', meaning:'Pond', kun:'いけ', diff:'氵＋也', mnemonic:'Water (氵) beside a coiling snake shape (也) — a still body of water where snakes coil in reeds: a POND.' },
+      { k:'泳', meaning:'Swim', kun:'およぐ', diff:'氵＋永', mnemonic:'Water (氵) beside "forever/long" (永) — staying in water for a long time: SWIMMING.' },
+    ]
+  },
+  {
+    id: 'koto',
+    color: '#9a7ec8',
+    rootChar: '言',
+    title: '言 — The Speech Family',
+    desc: 'Words build from the "say" radical — communication kanji all share this root.',
+    members: [
+      { k:'言', meaning:'Say / Words', kun:'いう', diff:'ROOT', mnemonic:'A mouth (口) with wave lines above — sound waves rising from a speaking mouth: WORDS.', isRoot: true },
+      { k:'語', meaning:'Language', kun:'かたる', diff:'言＋吾', mnemonic:'Speech (言) beside I/myself (吾) — MY speech, MY language. Your mother tongue.' },
+      { k:'読', meaning:'Read', kun:'よむ', diff:'言＋売', mnemonic:'Words (言) beside sell (売) — words that "sell" ideas: you READ them to absorb their message.' },
+      { k:'話', meaning:'Talk', kun:'はなす', diff:'言＋舌', mnemonic:'Speech (言) beside tongue (舌) — the tongue producing flowing TALK and conversation.' },
+      { k:'聞', meaning:'Listen', kun:'きく', diff:'耳＋門', mnemonic:'An ear (耳) pressed inside a gate (門) — listening at the gate, straining to HEAR what\'s inside.' },
+    ]
+  },
+  {
+    id: 'yama',
+    color: '#4a9e7a',
+    rootChar: '山',
+    title: '山 vs 川 vs 土 — Land Shapes',
+    desc: 'Landscape kanji drawn as pictograms — what you see is what they mean.',
+    members: [
+      { k:'山', meaning:'Mountain', kun:'やま', diff:'3 peaks', mnemonic:'Three peaks with the tallest in the middle — a MOUNTAIN skyline seen from a distance.', isRoot: true },
+      { k:'川', meaning:'River', kun:'かわ', diff:'3 streams', mnemonic:'Three flowing vertical lines — a RIVER flowing downhill, water in three channels.' },
+      { k:'土', meaning:'Earth / Soil', kun:'つち', diff:'cross＋base', mnemonic:'A cross planted in the ground — a stick pushed into the EARTH, rooted in soil.' },
+      { k:'地', meaning:'Ground', kun:'ち', diff:'土＋也', mnemonic:'Soil (土) beside a coiling shape (也) — the ground that creatures coil and live upon.' },
+      { k:'石', meaning:'Stone', kun:'いし', diff:'cliff＋口', mnemonic:'A cliff face (厂) with a gaping mouth (口) — a rock face so massive it seems to open like a cave.' },
+    ]
+  },
+  {
+    id: 'te',
+    color: '#c86878',
+    rootChar: '手',
+    title: '手 — The Hand Family',
+    desc: 'The hand radical (扌) appears in action verbs involving hands and touching.',
+    members: [
+      { k:'手', meaning:'Hand', kun:'て', diff:'ROOT', mnemonic:'Four fingers spreading out above a crossing palm line — a hand with all fingers outstretched.', isRoot: true },
+      { k:'右', meaning:'Right', kun:'みぎ', diff:'又＋口', mnemonic:'A simplified hand (又) near mouth (口) — your RIGHT hand brings food to your mouth.' },
+      { k:'左', meaning:'Left', kun:'ひだり', diff:'又＋工', mnemonic:'A simplified hand (又) near a tool (工) — LEFT hand steadies the workpiece while the right works.' },
+      { k:'友', meaning:'Friend', kun:'とも', diff:'又＋又ish', mnemonic:'Two hands reaching toward each other (又) — FRIENDS always extend a helping hand to one another.' },
+    ]
+  },
+  {
+    id: 'me',
+    color: '#e8c96a',
+    rootChar: '目',
+    title: '目 — The Eye Family',
+    desc: 'The eye radical links seeing, looking, and visual perception.',
+    members: [
+      { k:'目', meaning:'Eye', kun:'め', diff:'ROOT', mnemonic:'A tall rectangle with a horizontal pupil line — a wide-open EYE staring straight at you.', isRoot: true },
+      { k:'見', meaning:'See / Look', kun:'みる', diff:'目＋legs', mnemonic:'An eye (目) on two legs — an eye that WALKS around to SEE things for itself.' },
+      { k:'思', meaning:'Think', kun:'おもう', diff:'田＋心', mnemonic:'Rice field (田, similar to 目) above heart (心) — the mind cultivating thoughts like a FIELD of rice.' },
+      { k:'顔', meaning:'Face', kun:'かお', diff:'彦＋頁', mnemonic:'An elaborate character with a head (頁) — a decorated head with features: a full FACE.' },
+    ]
+  },
+  {
+    id: 'kokoro',
+    color: '#9a7ec8',
+    rootChar: '心',
+    title: '心 — The Heart Family',
+    desc: 'The heart/mind radical connects emotions and inner states.',
+    members: [
+      { k:'心', meaning:'Heart / Mind', kun:'こころ', diff:'ROOT', mnemonic:'Three droplets and a sweeping curve — a heart with three drops: blood pumping through it.', isRoot: true },
+      { k:'思', meaning:'Think', kun:'おもう', diff:'田＋心', mnemonic:'Rice field (田) over heart (心) — the heart/mind carefully cultivating thoughts like a rice paddy.' },
+      { k:'気', meaning:'Energy / Spirit', kun:'き', diff:'steam＋米', mnemonic:'Steam (气) rising from rice (米) — the vital ENERGY or life-force steaming up from nourishment.' },
+      { k:'悪', meaning:'Bad / Evil', kun:'わるい', diff:'亜＋心', mnemonic:'A pressing weight (亜) crushing the heart (心) — a heavy oppressive feeling: something BAD or EVIL.' },
+    ]
+  },
+  {
+    id: 'gate',
+    color: '#d4523a',
+    rootChar: '門',
+    title: '門 — The Gate Family',
+    desc: 'The gate encloses different radicals to change meaning entirely.',
+    members: [
+      { k:'門', meaning:'Gate', kun:'かど', diff:'ROOT', mnemonic:'Two door posts with horizontal bars — a pair of GATE posts seen head-on, symmetric and imposing.', isRoot: true },
+      { k:'間', meaning:'Between', kun:'あいだ', diff:'門＋日', mnemonic:'A sun (日) peeking through the gate (門) — sunlight coming through the GAP between the gate doors.' },
+      { k:'聞', meaning:'Listen', kun:'きく', diff:'門＋耳', mnemonic:'An ear (耳) pressed into the gate (門) — leaning close to LISTEN through the gate crack.' },
+      { k:'開', meaning:'Open', kun:'あける', diff:'門＋open latch', mnemonic:'Hands (廾) pulling the gate bolt — two hands pushing the gate OPEN from inside.' },
+      { k:'閉', meaning:'Close', kun:'しめる', diff:'門＋closed latch', mnemonic:'The gate (門) with a latch bar bolted across inside — firmly CLOSED and locked.' },
+    ]
+  },
+];
+
+// =============================================
+// RENDER LOOK-ALIKES
+// =============================================
+function renderLookalikes() {
+  const container = document.getElementById('lookalikes-container');
+  container.innerHTML = '';
+
+  lookalikeGroups.forEach(group => {
+    const section = document.createElement('div');
+    section.className = 'la-section';
+
+    // Header
+    const header = document.createElement('div');
+    header.className = 'la-header';
+    header.innerHTML = `
+      <div class="la-root-badge" style="background:rgba(${hexToRgb(group.color)},0.15);color:${group.color};border:1.5px solid ${group.color}40">${group.rootChar}</div>
+      <div class="la-header-info">
+        <h3>${group.title}</h3>
+        <p>${group.desc}</p>
+      </div>
+      <span class="la-count">${group.members.length} kanji</span>
+    `;
+    section.appendChild(header);
+
+    // Cards strip
+    const strip = document.createElement('div');
+    strip.className = 'la-family-strip';
+
+    group.members.forEach((m, i) => {
+      if (i > 0) {
+        const arrow = document.createElement('div');
+        arrow.className = 'la-arrow';
+        arrow.textContent = '→';
+        strip.appendChild(arrow);
+      }
+
+      const card = document.createElement('div');
+      card.className = 'la-card' + (m.isRoot ? ' la-root' : '');
+      card.style.borderColor = m.isRoot ? group.color : 'rgba(255,220,130,0.12)';
+      card.innerHTML = `
+        <div class="la-card-strip" style="background:${group.color}"></div>
+        ${!m.isRoot ? `<div class="la-diff-badge" style="color:${group.color};border-color:${group.color}40">${m.diff}</div>` : ''}
+        <span class="la-card-char" style="color:${group.color}">${m.k}</span>
+        <span class="la-card-meaning">${m.meaning}</span>
+        <span class="la-card-kun">${m.kun} <button class="speak-btn la-speak" title="Pronounce">🔊</button></span>
+        ${m.isRoot ? '<span class="la-root-label">ROOT</span>' : ''}
+      `;
+      // speak btn
+      const sBtn = card.querySelector('.la-speak');
+      sBtn.addEventListener('click', e => { e.stopPropagation(); speak(m.kun, sBtn); });
+      card.onclick = () => {
+        // Toggle mnemonic panel for this card
+        const panelId = 'la-panel-' + group.id;
+        let panel = document.getElementById(panelId);
+        const alreadyShowing = panel && panel.dataset.activeK === m.k && panel.classList.contains('visible');
+        if (panel) { panel.classList.remove('visible'); panel.innerHTML = ''; }
+        if (!alreadyShowing) {
+          panel.dataset.activeK = m.k;
+          panel.innerHTML = `
+            <div class="la-mnemonic-row">
+              <div class="la-mn-char" style="color:${group.color}">${m.k}</div>
+              <div class="la-mn-body">
+                <span class="la-mn-meaning">${m.meaning}</span>
+                <span class="la-mn-kun">訓読み: ${m.kun}</span>
+                <span class="la-mn-text">${m.mnemonic}</span>
+              </div>
+            </div>
+          `;
+          panel.classList.add('visible');
+          speak(m.kun, null);
+        }
+      };
+      strip.appendChild(card);
+    });
+
+    section.appendChild(strip);
+
+    // Hint
+    const hint = document.createElement('div');
+    hint.className = 'la-hint';
+    hint.textContent = 'tap any kanji to reveal its mnemonic story ↑';
+    section.appendChild(hint);
+
+    // Mnemonic panel (hidden by default)
+    const panel = document.createElement('div');
+    panel.className = 'la-mnemonic-panel';
+    panel.id = 'la-panel-' + group.id;
+    section.appendChild(panel);
+
+    container.appendChild(section);
+  });
+}
+
+function hexToRgb(hex) {
+  const r = parseInt(hex.slice(1,3),16);
+  const g = parseInt(hex.slice(3,5),16);
+  const b = parseInt(hex.slice(5,7),16);
+  return `${r},${g},${b}`;
+}
+
+// =============================================
+// SPEECH — Web Speech API (Japanese)
+// =============================================
+let jpVoice = null;
+let activeSpeakBtn = null;
+const canSpeak = typeof window !== 'undefined' && 'speechSynthesis' in window;
+
+function initVoice() {
+  if (!canSpeak) return;
+  const pick = () => {
+    const voices = speechSynthesis.getVoices();
+    jpVoice = voices.find(v => v.lang === 'ja-JP' && v.localService)
+           || voices.find(v => v.lang === 'ja-JP')
+           || voices.find(v => v.lang.startsWith('ja'))
+           || null;
+  };
+  pick();
+  speechSynthesis.onvoiceschanged = pick;
+}
+
+// Clean kunyomi text: take first reading, strip okurigana brackets like (く), (る)
+function cleanKun(kun) {
+  return kun.split('・')[0].replace(/[（(][^)）]*[)）]/g, '').trim();
+}
+
+function speak(kunText, btnEl) {
+  if (!canSpeak) return;
+  try {
+    speechSynthesis.cancel();
+    if (activeSpeakBtn) { activeSpeakBtn.classList.remove('speaking'); }
+
+    const utt = new SpeechSynthesisUtterance(cleanKun(kunText));
+    utt.lang = 'ja-JP';
+    utt.rate = 0.75;
+    utt.pitch = 1.1;
+    if (jpVoice) utt.voice = jpVoice;
+
+    if (btnEl) {
+      activeSpeakBtn = btnEl;
+      btnEl.classList.add('speaking');
+      utt.onend  = () => { btnEl.classList.remove('speaking'); activeSpeakBtn = null; };
+      utt.onerror = () => { btnEl.classList.remove('speaking'); activeSpeakBtn = null; };
+    }
+    speechSynthesis.speak(utt);
+  } catch(e) { /* speech blocked in this environment */ }
+}
+
+// =============================================
+// RENDER BROWSE VIEW
+// =============================================
+function renderBrowse() {
+  const container = document.getElementById('categories-container');
+  container.innerHTML = '';
+  categories.forEach(cat => {
+    const section = document.createElement('div');
+    section.className = 'category-section';
+    section.dataset.catId = cat.id;
+    section.innerHTML = `
+      <div class="category-header">
+        <span class="cat-icon">${cat.icon}</span>
+        <span class="cat-title">${cat.title}</span>
+        <span class="cat-count">${cat.kanji.length} kanji</span>
+      </div>
+      <div class="cards-grid" id="grid-${cat.id}"></div>
+    `;
+    container.appendChild(section);
+
+    const grid = section.querySelector(`#grid-${cat.id}`);
+    cat.kanji.forEach(k => {
+      const card = document.createElement('div');
+      card.className = 'kcard';
+      card.dataset.kanji = k.k;
+      card.dataset.meaning = k.meaning.toLowerCase();
+      card.innerHTML = `
+        <div class="kcard-top-strip" style="background:${cat.color}"></div>
+        <div class="kcard-main">
+          <div class="kcard-char" style="color:${cat.color}">${k.k}</div>
+          <div class="kcard-readings">
+            <span class="kcard-meaning">${k.meaning}</span>
+            <span class="kcard-kun">訓 ${k.kun} <button class="speak-btn" title="Pronounce kunyomi">🔊</button></span>
+            <span class="kcard-on">音 ${k.on}</span>
+          </div>
+        </div>
+        <div class="kcard-mnemonic" style="border-color:${cat.color}">${k.mnemonic}</div>
+        <div class="kcard-expand-hint">tap card to see mnemonic ▾</div>
+      `;
+      // speak button — stops click from toggling card expand
+      const speakBtn = card.querySelector('.speak-btn');
+      speakBtn.addEventListener('click', e => {
+        e.stopPropagation();
+        speak(k.kun, speakBtn);
+      });
+      card.addEventListener('click', () => card.classList.toggle('expanded'));
+      grid.appendChild(card);
+    });
+  });
+}
+
+// =============================================
+// SEARCH / FILTER
+// =============================================
+function filterCards(query) {
+  const q = query.toLowerCase().trim();
+  document.querySelectorAll('.category-section').forEach(section => {
+    let anyVisible = false;
+    section.querySelectorAll('.kcard').forEach(card => {
+      const match = !q || card.dataset.kanji.includes(q) || card.dataset.meaning.includes(q);
+      card.style.display = match ? '' : 'none';
+      if (match) anyVisible = true;
+    });
+    section.style.display = anyVisible ? '' : 'none';
+  });
+}
+
+// =============================================
+// CHEATSHEET
+// =============================================
+function renderCheatsheet() {
+  const tbody = document.getElementById('cheatsheet-body');
+  tbody.innerHTML = '';
+  allKanjiFlat.forEach(k => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td style="color:${k.catColor}">${k.k}</td>
+      <td class="cs-meaning">${k.meaning}</td>
+      <td>
+        <span class="cs-kun">${k.kun}</span>
+        <button class="speak-btn cs-speak" title="Pronounce">🔊</button>
+        <span class="cs-on">${k.on}</span>
+      </td>
+      <td class="cs-mnemonic">${k.mnemonic.slice(0,80)}${k.mnemonic.length > 80 ? '…' : ''}</td>
+    `;
+    const btn = tr.querySelector('.cs-speak');
+    btn.addEventListener('click', () => speak(k.kun, btn));
+    tbody.appendChild(tr);
+  });
+}
+
+// =============================================
+// QUIZ
+// =============================================
+let quizMode = 'meaning';
+let quizShuffled = [];
+let qIndex = 0;
+let qScore = 0;
+let qTotal = 0;
+let qAnswered = false;
+let quizCurrentKun = '';
+
+function shuffle(arr) { return [...arr].sort(() => Math.random() - 0.5); }
+
+function setMode(mode, btn) {
+  quizMode = mode;
+  document.querySelectorAll('.quiz-mode-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  resetQuiz();
+}
+
+function resetQuiz() {
+  quizShuffled = shuffle(allKanjiFlat);
+  qIndex = 0; qScore = 0; qTotal = 0; qAnswered = false;
+  document.getElementById('quiz-score').textContent = '0 / 0';
+  document.getElementById('quiz-prog').style.width = '0%';
+  showQuestion();
+}
+
+function showQuestion() {
+  qAnswered = false;
+  document.getElementById('quiz-feedback').textContent = '';
+  document.getElementById('quiz-feedback').className = 'quiz-feedback';
+  const speakBtn = document.getElementById('quiz-speak-btn');
+  if (speakBtn) speakBtn.classList.remove('speaking');
+
+  const cur = quizShuffled[qIndex % quizShuffled.length];
+  quizCurrentKun = cur.kun;
+
+  const others = shuffle(allKanjiFlat.filter(k => k.k !== cur.k)).slice(0, 3);
+  const options = shuffle([cur, ...others]);
+
+  const disp = document.getElementById('quiz-display');
+  const tag  = document.getElementById('quiz-cat-tag');
+
+  if (quizMode === 'meaning') {
+    disp.textContent = cur.k;
+    disp.style.fontFamily = "'Noto Serif JP', serif";
+    disp.style.fontSize = '96px';
+    tag.textContent = cur.category.toUpperCase();
+    renderOptions(options, o => o.meaning, () => cur.meaning);
+  } else if (quizMode === 'reading') {
+    disp.textContent = cur.k;
+    disp.style.fontFamily = "'Noto Serif JP', serif";
+    disp.style.fontSize = '96px';
+    tag.textContent = cur.category.toUpperCase();
+    renderOptions(options, o => o.kun, () => cur.kun);
+  } else {
+    disp.textContent = cur.meaning;
+    disp.style.fontFamily = "'Kaisei Decol', serif";
+    disp.style.fontSize = '48px';
+    tag.textContent = cur.category.toUpperCase();
+    renderOptions(options, o => o.k, () => cur.k, true);
+  }
+}
+
+function renderOptions(options, labelFn, correctFn, isKanjiOption) {
+  const container = document.getElementById('quiz-options');
+  container.innerHTML = '';
+  const correctVal = correctFn();
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'qbtn';
+    if (isKanjiOption) { btn.style.fontFamily = "'Noto Serif JP', serif"; btn.style.fontSize = '2rem'; }
+    btn.textContent = labelFn(opt);
+    btn.onclick = () => checkAnswer(btn, labelFn(opt) === correctVal, options.find(o => labelFn(o) === correctVal), correctFn);
+    container.appendChild(btn);
+  });
+}
+
+function checkAnswer(btn, correct, correctOpt, correctFn) {
+  if (qAnswered) return;
+  qAnswered = true;
+  qTotal++;
+  const fb = document.getElementById('quiz-feedback');
+  if (correct) {
+    btn.classList.add('correct');
+    qScore++;
+    fb.className = 'quiz-feedback good';
+    fb.textContent = '✓ Correct! ' + (correctOpt ? correctOpt.mnemonic.slice(0,70) + '…' : '');
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('.qbtn').forEach(b => { if (b.textContent === correctFn()) b.classList.add('correct'); });
+    fb.className = 'quiz-feedback bad';
+    const ck = allKanjiFlat.find(k => correctFn() === k.k || correctFn() === k.meaning || correctFn() === k.kun);
+    fb.textContent = '✗ Answer: ' + correctFn() + (ck ? ' — ' + ck.mnemonic.slice(0,50) + '…' : '');
+  }
+  // Auto-speak the correct kunyomi after answering
+  speak(quizCurrentKun, null);
+  document.getElementById('quiz-score').textContent = qScore + ' / ' + qTotal;
+  document.getElementById('quiz-prog').style.width = Math.round((qTotal / allKanjiFlat.length) * 100) + '%';
+}
+
+function nextQ() {
+  qIndex++;
+  if (qIndex >= quizShuffled.length) quizShuffled = shuffle(allKanjiFlat);
+  showQuestion();
+}
+
+// Quiz speak button
+function speakQuizCurrent() {
+  const btn = document.getElementById('quiz-speak-btn');
+  if (quizCurrentKun) speak(quizCurrentKun, btn);
+}
+
+window.nextQ = nextQ;
+window.speakQuizCurrent = speakQuizCurrent;
+
+// =============================================
+// MEMORY THEATER
+// =============================================
+const theaterData = {
+  pictographs: [
+    {
+      k: '日', meaning: 'Sun / Day', kun: 'ひ・か', on: 'ニチ・ジツ', color: '#e8aa20',
+      origin: 'pictograph',
+      story: 'Ancient oracle-bone script showed a circle with a dot in the centre — the blazing sun. The rectangle with a horizontal bar is that same sun, slightly squared off. The centre line = heat ray cutting through.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="36" r="18" fill="#fff8d0" stroke="#e8aa20" stroke-width="2.5"/>
+        <line x1="18" y1="36" x2="54" y2="36" stroke="#e8aa20" stroke-width="2" stroke-dasharray="3,2"/>
+        ${[0,45,90,135,180,225,270,315].map(a=>`<line x1="${36+22*Math.cos(a*Math.PI/180)}" y1="${36+22*Math.sin(a*Math.PI/180)}" x2="${36+28*Math.cos(a*Math.PI/180)}" y2="${36+28*Math.sin(a*Math.PI/180)}" stroke="#e8aa20" stroke-width="2" stroke-linecap="round"/>`).join('')}
+      </svg>`,
+      weekday: '日曜日 Sunday'
+    },
+    {
+      k: '月', meaning: 'Moon / Month', kun: 'つき', on: 'ゲツ・ガツ', color: '#7ab0d4',
+      origin: 'pictograph',
+      story: 'Originally a crescent moon — you can still see the curve. The two short strokes inside are ancient crater marks. Every month is one full cycle of this moon.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M44 14 A22 22 0 1 0 44 58 A14 14 0 1 1 44 14Z" fill="#d8eaf7" stroke="#7ab0d4" stroke-width="2"/>
+        <circle cx="30" cy="30" r="2.5" fill="#7ab0d4" opacity="0.6"/>
+        <circle cx="36" cy="45" r="1.8" fill="#7ab0d4" opacity="0.5"/>
+        <circle cx="25" cy="44" r="1.5" fill="#7ab0d4" opacity="0.4"/>
+      </svg>`,
+      weekday: '月曜日 Monday'
+    },
+    {
+      k: '山', meaning: 'Mountain', kun: 'やま', on: 'サン', color: '#7d9e7a',
+      origin: 'pictograph',
+      story: 'Look at the three peaks! Exactly like a mountain silhouette — tallest in the middle, two shorter peaks on either side. This is one of the oldest pictograph kanji and looks almost identical to its oracle-bone origin.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="10,58 26,28 36,18 46,28 62,58" fill="#e8f3e8" stroke="#7d9e7a" stroke-width="2" stroke-linejoin="round"/>
+        <line x1="10" y1="58" x2="62" y2="58" stroke="#7d9e7a" stroke-width="2"/>
+        <circle cx="36" cy="16" r="2" fill="#7d9e7a" opacity="0.4"/>
+      </svg>`
+    },
+    {
+      k: '川', meaning: 'River', kun: 'かわ', on: 'セン', color: '#5a9ec8',
+      origin: 'pictograph',
+      story: 'Three vertical flowing lines — imagine looking down from a bridge. The outer lines are the riverbanks, the centre line is the powerful current rushing between them. You can almost hear the water.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 10 Q18 36 20 62" stroke="#5a9ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M36 8 Q33 36 36 64" stroke="#5a9ec8" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M52 10 Q54 36 52 62" stroke="#5a9ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="36" cy="36" rx="24" ry="6" fill="#c8e8f8" opacity="0.3"/>
+      </svg>`
+    },
+    {
+      k: '木', meaning: 'Tree / Wood', kun: 'き', on: 'モク', color: '#8b6a3a',
+      origin: 'pictograph',
+      story: 'The vertical stroke is the trunk. The horizontal bar is the ground. Diagonal strokes above = branches reaching for sun. Diagonal strokes below = roots gripping the earth. Perfect tree, zero ambiguity.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="36" y1="8" x2="36" y2="64" stroke="#8b6a3a" stroke-width="3"/>
+        <line x1="16" y1="38" x2="56" y2="38" stroke="#8b6a3a" stroke-width="2.5"/>
+        <line x1="36" y1="20" x2="20" y2="36" stroke="#4a9e7a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="36" y1="20" x2="52" y2="36" stroke="#4a9e7a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="36" y1="52" x2="24" y2="64" stroke="#8b6a3a" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="36" y1="52" x2="48" y2="64" stroke="#8b6a3a" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <ellipse cx="36" cy="18" rx="10" ry="12" fill="#d4eeda" opacity="0.6"/>
+      </svg>`
+    },
+    {
+      k: '火', meaning: 'Fire', kun: 'ひ', on: 'カ', color: '#d4523a',
+      origin: 'pictograph',
+      story: 'A person (人) leaping upward, with two small flame strokes at the bottom left and right of their feet. Their feet are literally ON FIRE. The top stroke is the body jumping away from the heat.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="36" cy="50" rx="16" ry="10" fill="#ffe0c8" opacity="0.8"/>
+        <path d="M36 50 Q28 38 30 24 Q34 30 36 26 Q38 30 42 24 Q44 38 36 50Z" fill="#f4845a" stroke="#d4523a" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M24 56 Q22 48 26 44" stroke="#e8a070" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M48 56 Q50 48 46 44" stroke="#e8a070" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      </svg>`,
+      weekday: '火曜日 Tuesday'
+    },
+    {
+      k: '水', meaning: 'Water', kun: 'みず', on: 'スイ', color: '#5a9ec8',
+      origin: 'pictograph',
+      story: 'A central flow stroke with splashes left and right — imagine water hitting a surface and droplets flying outward. When written as a radical (氵) on the left side of kanji, it becomes three drops.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M36 10 Q34 32 36 62" stroke="#5a9ec8" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M36 30 Q24 26 18 34" stroke="#5a9ec8" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <path d="M36 30 Q48 26 54 34" stroke="#5a9ec8" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+        <circle cx="16" cy="36" r="3" fill="#5a9ec8" opacity="0.5"/>
+        <circle cx="56" cy="36" r="3" fill="#5a9ec8" opacity="0.5"/>
+        <circle cx="36" cy="64" r="4" fill="#c8e8f8" opacity="0.8"/>
+      </svg>`,
+      weekday: '水曜日 Wednesday'
+    },
+    {
+      k: '雨', meaning: 'Rain', kun: 'あめ', on: 'ウ', color: '#7ab0d4',
+      origin: 'pictograph',
+      story: 'A horizontal roof at the top (the sky). Below it, four raindrops arranged in two rows — you can literally count the drops falling. One of the most visually faithful pictographs in Japanese.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="12" y="18" width="48" height="6" rx="2" fill="#c8dff0" stroke="#7ab0d4" stroke-width="1.5"/>
+        <line x1="12" y1="21" x2="60" y2="21" stroke="#7ab0d4" stroke-width="1.5"/>
+        ${[[22,36],[36,36],[50,36],[22,50],[36,50],[50,50]].map(([x,y])=>`<ellipse cx="${x}" cy="${y}" rx="3" ry="5" fill="#7ab0d4" opacity="0.6"/>`).join('')}
+      </svg>`
+    },
+    {
+      k: '人', meaning: 'Person', kun: 'ひと', on: 'ジン・ニン', color: '#d4523a',
+      origin: 'pictograph',
+      story: 'Two simple strokes — a person walking, viewed from the side. Left stroke = body leaning forward, right stroke = back leg. The simplest possible drawing of a human being.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="36" cy="16" r="8" fill="#f8d0c8" stroke="#d4523a" stroke-width="1.5"/>
+        <line x1="36" y1="24" x2="28" y2="54" stroke="#d4523a" stroke-width="3" stroke-linecap="round"/>
+        <line x1="36" y1="24" x2="48" y2="54" stroke="#d4523a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="28" y1="38" x2="18" y2="46" stroke="#d4523a" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+        <line x1="36" y1="38" x2="50" y2="44" stroke="#d4523a" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+      </svg>`
+    },
+  ],
+
+  weekdays: [
+    {
+      k: '金', meaning: 'Gold / Money', kun: 'かね', on: 'キン', color: '#e8c96a',
+      origin: 'compound',
+      story: 'A person under an umbrella/roof, with two gold nuggets at their feet. The rich person standing over their buried treasure. Also means: 金曜日 = Friday.',
+      radicals: [{ char:'人', meaning:'person' }, { char:'王', meaning:'king' }, { char:'土×2', meaning:'earth×2' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="36,10 16,30 56,30" fill="#fff8d0" stroke="#e8c96a" stroke-width="2"/>
+        <line x1="36" y1="30" x2="36" y2="52" stroke="#e8c96a" stroke-width="2.5"/>
+        <line x1="20" y1="52" x2="52" y2="52" stroke="#e8c96a" stroke-width="2.5"/>
+        <circle cx="24" cy="62" r="7" fill="#e8c96a" opacity="0.8"/>
+        <circle cx="48" cy="62" r="7" fill="#e8c96a" opacity="0.8"/>
+      </svg>`,
+      weekday: '金曜日 Friday'
+    },
+    {
+      k: '土', meaning: 'Earth / Soil', kun: 'つち', on: 'ド・ト', color: '#a07828',
+      origin: 'pictograph',
+      story: 'A cross (十) above a baseline — a plant sprouting from the ground, or a stake hammered into earth to mark territory. The ground line below is the soil itself.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="36" y1="14" x2="36" y2="54" stroke="#a07828" stroke-width="3"/>
+        <line x1="20" y1="34" x2="52" y2="34" stroke="#a07828" stroke-width="2.5"/>
+        <line x1="14" y1="58" x2="58" y2="58" stroke="#a07828" stroke-width="3"/>
+        <ellipse cx="36" cy="58" rx="24" ry="5" fill="#e8d8b0" opacity="0.5"/>
+      </svg>`,
+      weekday: '土曜日 Saturday'
+    },
+  ],
+
+  compounds: [
+    {
+      k: '明', meaning: 'Bright / Clear', kun: 'あかるい', on: 'メイ・ミョウ', color: '#e8c96a',
+      origin: 'compound',
+      story: 'Sun (日) + Moon (月) side by side. When BOTH the sun AND the moon shine at the same time, the world is twice as bright. The equation 日＋月＝明 is the most beautiful in all kanji.',
+      radicals: [{ char:'日', meaning:'sun' }, { char:'月', meaning:'moon' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="36" r="14" fill="#fff8d0" stroke="#e8c96a" stroke-width="2"/>
+        <line x1="8" y1="36" x2="36" y2="36" stroke="#e8c96a" stroke-width="1.5" stroke-dasharray="2,2"/>
+        <path d="M52 22 A14 14 0 1 0 52 50 A9 9 0 1 1 52 22Z" fill="#d8eaf7" stroke="#7ab0d4" stroke-width="2"/>
+        <text x="36" y="68" text-anchor="middle" font-size="10" fill="#a07828" font-family="serif">＝ 明</text>
+      </svg>`
+    },
+    {
+      k: '休', meaning: 'Rest', kun: 'やすむ', on: 'キュウ', color: '#4a9e7a',
+      origin: 'compound',
+      story: 'Person (人) + Tree (木). A tired person leaning against a tree for shade on a hot afternoon. You can actually see them: the left stroke of 人 leans into the trunk of 木. Once you see it, you can\'t unsee it.',
+      radicals: [{ char:'人', meaning:'person' }, { char:'木', meaning:'tree' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="42" y1="8" x2="42" y2="64" stroke="#8b6a3a" stroke-width="3"/>
+        <line x1="24" y1="38" x2="60" y2="38" stroke="#8b6a3a" stroke-width="2.5"/>
+        <line x1="42" y1="22" x2="28" y2="36" stroke="#4a9e7a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="42" y1="22" x2="56" y2="36" stroke="#4a9e7a" stroke-width="2.5" stroke-linecap="round"/>
+        <ellipse cx="40" cy="20" rx="10" ry="13" fill="#d4eeda" opacity="0.6"/>
+        <circle cx="22" cy="26" r="6" fill="#f8d0c8" stroke="#d4523a" stroke-width="1.2"/>
+        <line x1="22" y1="32" x2="16" y2="52" stroke="#d4523a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="22" y1="32" x2="32" y2="48" stroke="#d4523a" stroke-width="2" stroke-linecap="round"/>
+      </svg>`
+    },
+    {
+      k: '男', meaning: 'Man / Male', kun: 'おとこ', on: 'ダン', color: '#5a9ec8',
+      origin: 'compound',
+      story: 'Rice field (田) + Power/Strength (力). In ancient times a man was defined by using his physical strength (力) to work in the rice paddy (田). The equation is ruthlessly logical.',
+      radicals: [{ char:'田', meaning:'rice field' }, { char:'力', meaning:'strength' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="12" y="12" width="36" height="30" rx="2" fill="#f0f0d8" stroke="#8b7a3a" stroke-width="2"/>
+        <line x1="30" y1="12" x2="30" y2="42" stroke="#8b7a3a" stroke-width="1.5"/>
+        <line x1="12" y1="27" x2="48" y2="27" stroke="#8b7a3a" stroke-width="1.5"/>
+        <path d="M52 44 Q60 36 58 50 Q62 48 56 60 Q50 54 52 44Z" fill="#d4523a" opacity="0.8"/>
+      </svg>`
+    },
+    {
+      k: '森', meaning: 'Deep Forest', kun: 'もり', on: 'シン', color: '#4a9e7a',
+      origin: 'compound',
+      story: '3 × Tree (木木木). One tree is just 木. Two trees side by side = 林 (grove). Three trees = 森 (deep forest). The logic is perfect: more trees = bigger forest. This is kanji doing exactly what it was designed to do.',
+      radicals: [{ char:'木', meaning:'tree ×3' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        ${[14,36,58].map((x,i)=>`
+          <line x1="${x}" y1="${16+i*4}" x2="${x}" y2="${52+i*2}" stroke="#6b4e2a" stroke-width="${2+i*0.3}"/>
+          <line x1="${x-14}" y1="${32+i*4}" x2="${x+14}" y2="${32+i*4}" stroke="#6b4e2a" stroke-width="2"/>
+          <ellipse cx="${x}" cy="${14+i*4}" rx="${10+i*2}" ry="${12+i*2}" fill="#d4eeda" opacity="${0.8-i*0.1}" stroke="#4a9e7a" stroke-width="1"/>
+        `).join('')}
+      </svg>`
+    },
+    {
+      k: '時', meaning: 'Time / Hour', kun: 'とき', on: 'ジ', color: '#5a9ec8',
+      origin: 'compound',
+      story: 'Sun (日) + Temple (寺). Buddhist monks rang temple bells to mark every hour by the position of the sun. The kanji literally encodes this practice — a sun watching over a temple, telling time.',
+      radicals: [{ char:'日', meaning:'sun' }, { char:'寺', meaning:'temple' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="22" r="10" fill="#fff8d0" stroke="#e8c96a" stroke-width="2"/>
+        <line x1="8" y1="22" x2="28" y2="22" stroke="#e8c96a" stroke-width="1.5"/>
+        <polygon points="40,8 28,20 52,20" fill="#e8d8b0" stroke="#a07828" stroke-width="1.5"/>
+        <rect x="32" y="20" width="20" height="26" fill="#f5f0e8" stroke="#a07828" stroke-width="1.5"/>
+        <rect x="38" y="34" width="8" height="12" fill="#d4c090"/>
+        <path d="M54 32 Q60 28 58 36 Q62 32 60 42" stroke="#e8c96a" stroke-width="1.5" fill="none" opacity="0.7"/>
+      </svg>`
+    },
+    {
+      k: '間', meaning: 'Between / Gap', kun: 'あいだ', on: 'カン', color: '#9a7ec8',
+      origin: 'compound',
+      story: 'Gate (門) with Sun (日) peeking through. The sun shining through the gap between two gate doors. The space between = 間. Used in 時間 (time, literally "time-gap"), 人間 (human being, literally "person-between-worlds").',
+      radicals: [{ char:'門', meaning:'gate' }, { char:'日', meaning:'sun' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="10" y="14" width="12" height="44" rx="2" fill="#e8d8c0" stroke="#a07828" stroke-width="2"/>
+        <rect x="50" y="14" width="12" height="44" rx="2" fill="#e8d8c0" stroke="#a07828" stroke-width="2"/>
+        <line x1="10" y1="14" x2="62" y2="14" stroke="#a07828" stroke-width="2.5"/>
+        <circle cx="36" cy="36" r="12" fill="#fff8d0" stroke="#e8c96a" stroke-width="2"/>
+        <line x1="24" y1="36" x2="48" y2="36" stroke="#e8c96a" stroke-width="1.5"/>
+        ${[0,60,120,180,240,300].map(a=>`<line x1="${36+15*Math.cos(a*Math.PI/180)}" y1="${36+15*Math.sin(a*Math.PI/180)}" x2="${36+20*Math.cos(a*Math.PI/180)}" y2="${36+20*Math.sin(a*Math.PI/180)}" stroke="#e8c96a" stroke-width="1.5"/>`).join('')}
+      </svg>`
+    },
+    {
+      k: '学', meaning: 'Study / Learn', kun: 'まなぶ', on: 'ガク', color: '#e8c96a',
+      origin: 'compound',
+      story: 'Two hands (爻 = crossed lines at top) over a roof (冖) with a child (子) below. A child sitting under a roof with adult hands guiding them from above — the perfect image of teaching.',
+      radicals: [{ char:'爻', meaning:'hands/teach' }, { char:'冖', meaning:'roof' }, { char:'子', meaning:'child' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="16" y="28" width="40" height="34" rx="3" fill="#f5f0e8" stroke="#a07828" stroke-width="2"/>
+        <polygon points="36,8 12,28 60,28" fill="#e8d8b0" stroke="#a07828" stroke-width="1.5"/>
+        <circle cx="36" cy="44" r="8" fill="#f8d0c8" stroke="#d4523a" stroke-width="1.5"/>
+        <line x1="36" y1="52" x2="30" y2="62" stroke="#d4523a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="36" y1="52" x2="42" y2="62" stroke="#d4523a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="20" y1="14" x2="28" y2="22" stroke="#e8c96a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="28" y1="14" x2="20" y2="22" stroke="#e8c96a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="44" y1="14" x2="52" y2="22" stroke="#e8c96a" stroke-width="2" stroke-linecap="round"/>
+        <line x1="52" y1="14" x2="44" y2="22" stroke="#e8c96a" stroke-width="2" stroke-linecap="round"/>
+      </svg>`
+    },
+    {
+      k: '聞', meaning: 'Hear / Listen', kun: 'きく', on: 'ブン・モン', color: '#c86878',
+      origin: 'compound',
+      story: 'Ear (耳) inside a Gate (門). You press your ear against the gate to eavesdrop. The ear is literally trapped inside the gate frame — the kanji draws the act of listening through a barrier.',
+      radicals: [{ char:'門', meaning:'gate' }, { char:'耳', meaning:'ear' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="8" y="10" width="10" height="52" rx="2" fill="#e8d8c0" stroke="#a07828" stroke-width="1.8"/>
+        <rect x="54" y="10" width="10" height="52" rx="2" fill="#e8d8c0" stroke="#a07828" stroke-width="1.8"/>
+        <line x1="8" y1="10" x2="64" y2="10" stroke="#a07828" stroke-width="2.5"/>
+        <rect x="24" y="24" width="24" height="30" rx="4" fill="#f5dde0" stroke="#c86878" stroke-width="2"/>
+        <path d="M30 30 Q36 26 42 30 Q44 38 36 44 Q28 38 30 30Z" fill="#c86878" opacity="0.5"/>
+        <line x1="36" y1="44" x2="36" y2="50" stroke="#c86878" stroke-width="1.5"/>
+        <line x1="30" y1="50" x2="42" y2="50" stroke="#c86878" stroke-width="1.5"/>
+      </svg>`
+    },
+  ],
+
+  direction: [
+    {
+      k: '東', meaning: 'East', kun: 'ひがし', on: 'トウ', color: '#e8c96a',
+      origin: 'compound',
+      story: 'Sun (日) rising through a Tree (木). The sun pierces through the treetops as it climbs above the eastern horizon each morning. Once you visualise sunrise in a forest, this kanji is permanently encoded.',
+      radicals: [{ char:'日', meaning:'sun' }, { char:'木', meaning:'tree' }],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="36" y1="18" x2="36" y2="66" stroke="#6b4e2a" stroke-width="3"/>
+        <line x1="18" y1="44" x2="54" y2="44" stroke="#6b4e2a" stroke-width="2.5"/>
+        <line x1="36" y1="28" x2="22" y2="42" stroke="#4a9e7a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="36" y1="28" x2="50" y2="42" stroke="#4a9e7a" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="36" cy="16" r="10" fill="#fff8d0" stroke="#e8aa20" stroke-width="2"/>
+        ${[0,60,120,180,240,300].map(a=>`<line x1="${36+13*Math.cos(a*Math.PI/180)}" y1="${16+13*Math.sin(a*Math.PI/180)}" x2="${36+18*Math.cos(a*Math.PI/180)}" y2="${16+18*Math.sin(a*Math.PI/180)}" stroke="#e8aa20" stroke-width="1.5"/>`).join('')}
+      </svg>`
+    },
+    {
+      k: '西', meaning: 'West', kun: 'にし', on: 'セイ', color: '#d4523a',
+      origin: 'pictograph',
+      story: 'Originally a picture of a bird settling into its nest. Birds return to roost as the sun sets in the WEST. The character looks like a nest with something tucked inside — a bird folding its wings for the night.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="36" cy="50" rx="22" ry="12" fill="#f0e8d4" stroke="#a07828" stroke-width="2"/>
+        <path d="M16 48 Q20 36 28 32 Q36 30 44 32 Q52 36 56 48" fill="none" stroke="#a07828" stroke-width="1.5"/>
+        <ellipse cx="36" cy="38" rx="10" ry="8" fill="#f8d0a8" stroke="#d4523a" stroke-width="1.5"/>
+        <circle cx="33" cy="35" r="2" fill="#d4523a" opacity="0.8"/>
+        <path d="M36 30 Q42 22 52 18 Q46 26 44 32" fill="#d4523a" opacity="0.5"/>
+        <path d="M36 30 Q30 22 20 18 Q26 26 28 32" fill="#d4523a" opacity="0.5"/>
+        <circle cx="58" cy="16" r="8" fill="#ffe0a0" opacity="0.7" stroke="#e8aa20" stroke-width="1"/>
+      </svg>`
+    },
+    {
+      k: '北', meaning: 'North', kun: 'きた', on: 'ホク', color: '#9a7ec8',
+      origin: 'pictograph',
+      story: 'Two people sitting back-to-back (compare to 比 = compare, which is two people facing each other). They\'re turning their backs to the cold north wind. In East Asian tradition, people faced south toward warmth, so north = behind you.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="20" r="7" fill="#f8d0c8" stroke="#d4523a" stroke-width="1.5"/>
+        <line x1="22" y1="27" x2="16" y2="50" stroke="#d4523a" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="22" y1="36" x2="10" y2="42" stroke="#d4523a" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="50" cy="20" r="7" fill="#f8d0c8" stroke="#9a7ec8" stroke-width="1.5"/>
+        <line x1="50" y1="27" x2="56" y2="50" stroke="#9a7ec8" stroke-width="2.5" stroke-linecap="round"/>
+        <line x1="50" y1="36" x2="62" y2="42" stroke="#9a7ec8" stroke-width="2" stroke-linecap="round"/>
+        <path d="M36 12 L32 20 L36 18 L40 20 Z" fill="#7ab0d4" opacity="0.8"/>
+        <text x="36" y="68" text-anchor="middle" font-size="9" fill="#9a7ec8" font-family="serif">← back to back →</text>
+      </svg>`
+    },
+    {
+      k: '上', meaning: 'Up / Above', kun: 'うえ', on: 'ジョウ', color: '#4a9e7a',
+      origin: 'semantic',
+      story: 'A short line sitting ON TOP of a longer baseline. As simple as it gets — something is above the ground line. Compare with 下: the short line hangs BELOW the baseline.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="14" y1="52" x2="58" y2="52" stroke="#4a9e7a" stroke-width="3"/>
+        <line x1="36" y1="52" x2="36" y2="22" stroke="#4a9e7a" stroke-width="2.5"/>
+        <line x1="24" y1="22" x2="48" y2="22" stroke="#4a9e7a" stroke-width="2.5"/>
+        <polygon points="36,10 30,22 42,22" fill="#4a9e7a" opacity="0.6"/>
+        <text x="36" y="68" text-anchor="middle" font-size="9" fill="#4a9e7a" font-family="monospace">↑ above</text>
+      </svg>`
+    },
+    {
+      k: '下', meaning: 'Down / Below', kun: 'した', on: 'カ・ゲ', color: '#c86878',
+      origin: 'semantic',
+      story: 'A short line dangling BELOW the longer baseline — like a stalactite hanging down from a cave ceiling. The mirror image of 上. Put them together: 上下 = up and down, top and bottom.',
+      radicals: [],
+      svgScene: `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="14" y1="22" x2="58" y2="22" stroke="#c86878" stroke-width="3"/>
+        <line x1="36" y1="22" x2="36" y2="52" stroke="#c86878" stroke-width="2.5"/>
+        <line x1="26" y1="52" x2="46" y2="52" stroke="#c86878" stroke-width="2"/>
+        <polygon points="36,62 30,52 42,52" fill="#c86878" opacity="0.6"/>
+        <text x="36" y="70" text-anchor="middle" font-size="9" fill="#c86878" font-family="monospace">↓ below</text>
+      </svg>`
+    },
+  ]
+};
+
+function buildTC(card) {
+  const radHtml = card.radicals && card.radicals.length
+    ? `<div class="tc-radicals">
+        <span class="tc-radical-label">Radical breakdown</span>
+        ${card.radicals.map((r,i) => `
+          <span class="tc-rad"><span class="tc-rad-char" style="color:${card.color}">${r.char}</span> ${r.meaning}</span>
+          ${i < card.radicals.length-1 ? '<span class="tc-rad-eq">＋</span>' : ''}
+        `).join('')}
+        <span class="tc-rad-eq">=</span>
+        <span class="tc-rad" style="border-color:${card.color}"><span class="tc-rad-char" style="color:${card.color}">${card.k}</span> ${card.meaning}</span>
+      </div>` : '';
+
+  const weekdayHtml = card.weekday
+    ? `<div class="tc-weekday"><span class="tc-day-pill">📅 ${card.weekday}</span></div>` : '';
+
+  return `<div class="tc">
+    <div class="tc-header" style="border-left:4px solid ${card.color}">
+      <div class="tc-kanji" style="color:${card.color}">${card.k}</div>
+      <div class="tc-info">
+        <span class="tc-meaning">${card.meaning}</span>
+        <span class="tc-reading">訓 ${card.kun}</span>
+        <span class="tc-on">音 ${card.on}</span>
+      </div>
+    </div>
+    <div class="tc-scene">
+      <div class="tc-svg">${card.svgScene}</div>
+      <div class="tc-story">${card.story}</div>
+    </div>
+    ${radHtml}
+    ${weekdayHtml}
+  </div>`;
+}
+
+function renderTheater() {
+  document.getElementById('tc-pictographs').innerHTML = theaterData.pictographs.map(buildTC).join('');
+  document.getElementById('tc-weekdays').innerHTML = theaterData.weekdays.map(buildTC).join('');
+  document.getElementById('tc-compounds').innerHTML = theaterData.compounds.map(buildTC).join('');
+  document.getElementById('tc-direction').innerHTML = theaterData.direction.map(buildTC).join('');
+}
+
+// =============================================
+// HIRAGANA DATA
+// =============================================
+const hiraganaGroups = [
+  { title: 'Vowels', chars: [
+    { h:'あ', r:'a', mnemonic:'A samurai\'s topknot with a curled ponytail flicking out — say "ah!" in surprise at his haircut.', strokes:['Short horizontal dash, top left.','Long curved stroke down through the middle, bowing left at the bottom.','Diagonal stroke crossing through, curling into a small loop bottom-right.'] },
+    { h:'い', r:'i', mnemonic:'Two chopsticks standing side by side, one taller — easy to spot, easy to eat "ii" (good) food with.', strokes:['Short curved stroke down-left.','Longer curved stroke down-left, just to the right of the first.'] },
+    { h:'う', r:'u', mnemonic:'A hooded figure — the top hook is a hood, the swoop below is a person ducking under it, going "ooh".', strokes:['Small hook/dot at the top.','One long curved stroke sweeping down and left like a hood.'] },
+    { h:'え', r:'e', mnemonic:'A pretzel with an extra twist — the letter looks like a squiggly "e" tied in a knot, easy to remember.', strokes:['Short horizontal stroke, top.','One long stroke curving down, hooking right, then flicking back left.'] },
+    { h:'お', r:'o', mnemonic:'A person with a fancy top-knot and a little flag on a string — "oh!" look at that hairstyle.', strokes:['Horizontal stroke, top.','Long vertical/curved stroke down with a loop at the bottom.','Small diagonal flick stroke to the right, like a flag.'] },
+  ]},
+  { title: 'K-row', chars: [
+    { h:'か', r:'ka', mnemonic:'A key (kagi) with a small flag tag on it — "ka" for key.', strokes:['Vertical stroke down with a small hook left at the bottom.','Diagonal stroke crossing through.','Small separate stroke bottom-right, like a tag.'] },
+    { h:'き', r:'ki', mnemonic:'An actual key shape — "ki" literally sounds like "key"!', strokes:['Two horizontal strokes stacked.','Long vertical stroke down through both.','Small curved loop stroke at the bottom.'] },
+    { h:'く', r:'ku', mnemonic:'A bent arm or claw, like a crab pinching — "ku" like the claw\'s "click".', strokes:['One single bent stroke, like a wide "<" shape.'] },
+    { h:'け', r:'ke', mnemonic:'A kettle with a spout — steam whistling "keh".', strokes:['Short vertical stroke, left.','Vertical stroke with a hook, right.','Small diagonal flick stroke crossing near the bottom.'] },
+    { h:'こ', r:'ko', mnemonic:'Two little combs (kushi) stacked — koi fish scales lined up.', strokes:['Short horizontal stroke, top.','Longer curved horizontal stroke, bottom, nearly closing the shape.'] },
+  ]},
+  { title: 'S-row', chars: [
+    { h:'さ', r:'sa', mnemonic:'A fishing hook with a little flag — samurai saying "sa!" as they cast the line.', strokes:['Short horizontal stroke, top.','Vertical stroke down, crossing the first.','Curved hook stroke at the bottom, sweeping left.'] },
+    { h:'し', r:'shi', mnemonic:'A single ski slope — "shi" like sliding down on skis.', strokes:['One long curved stroke, top to bottom, hooking left at the base.'] },
+    { h:'す', r:'su', mnemonic:'A swirl of noodles on a fork — think "sushi" spinning on the plate.', strokes:['Short curved stroke, top.','Long looping stroke that spirals at the bottom.'] },
+    { h:'せ', r:'se', mnemonic:'A well with a bucket hook — drawing water goes "seh, seh".', strokes:['Short horizontal stroke, top.','Vertical stroke down with a small hook.','Horizontal stroke crossing near the bottom.'] },
+    { h:'そ', r:'so', mnemonic:'A zigzag lightning bolt — "so-so", back and forth like static.', strokes:['One continuous zigzag stroke from top to bottom.'] },
+  ]},
+  { title: 'T-row', chars: [
+    { h:'た', r:'ta', mnemonic:'A person crossing their arms proudly — "ta-da!"', strokes:['Short horizontal stroke, top-left.','Vertical stroke down, crossing it.','Small curved stroke, right side.','Short diagonal flick, bottom-right.'] },
+    { h:'ち', r:'chi', mnemonic:'A candy cane hook — cheerleaders shouting "chi, chi!" waving pom-poms.', strokes:['Short horizontal stroke, top.','Long curved stroke sweeping down and hooking left.'] },
+    { h:'つ', r:'tsu', mnemonic:'A single ocean wave — this is the "tsu" in tsunami!', strokes:['One smooth curved stroke, like a wave cresting left to right.'] },
+    { h:'て', r:'te', mnemonic:'A hand reaching out — "te" literally means hand.', strokes:['One continuous stroke: horizontal top, curving down into a hook.'] },
+    { h:'と', r:'to', mnemonic:'A toe kicking a ball — a sharp "to!" as it connects.', strokes:['Short vertical stroke, top.','Curved hook stroke, sweeping down and left.'] },
+  ]},
+  { title: 'N-row', chars: [
+    { h:'な', r:'na', mnemonic:'A friend waving both hands — "na na na", hello there!', strokes:['Short horizontal stroke.','Vertical stroke crossing it.','Curved stroke, right side.','Small loop stroke, bottom-right.'] },
+    { h:'に', r:'ni', mnemonic:'A sewing needle with two eyes — "ni" for needle.', strokes:['Short vertical stroke, left.','Vertical stroke, right, slightly taller.','Two small horizontal flicks at the base.'] },
+    { h:'ぬ', r:'nu', mnemonic:'A tangled noodle — "nu-dle" all knotted up.', strokes:['Curved stroke down.','Long stroke looping through it into a knot at the bottom.'] },
+    { h:'ね', r:'ne', mnemonic:'A cat (neko) curling its tail into a loop, purring "ne~".', strokes:['Curved stroke down.','Long stroke curving through with a loop at the bottom, like a tail.'] },
+    { h:'の', r:'no', mnemonic:'One single spiral — drawing a big "no" circle with your finger.', strokes:['One continuous spiral stroke, top to bottom.'] },
+  ]},
+  { title: 'H-row', chars: [
+    { h:'は', r:'ha', mnemonic:'A person laughing out loud — "ha ha ha!"', strokes:['Short vertical stroke, left.','Vertical stroke with a hook, right.','Curved horizontal stroke crossing near the bottom.'] },
+    { h:'ひ', r:'hi', mnemonic:'A simple smiling curve — a happy little "hi!"', strokes:['One curved stroke, sweeping up then down like a smile.'] },
+    { h:'ふ', r:'fu', mnemonic:'Mount Fuji — two little humps like the mountain\'s peak.', strokes:['Short diagonal stroke.','Second short diagonal stroke.','Curved stroke down the middle.','Small hook stroke at the base.'] },
+    { h:'へ', r:'he', mnemonic:'A single mountain peak — simplest shape of them all, just "he".', strokes:['One diagonal stroke up then down, like a small peak.'] },
+    { h:'ほ', r:'ho', mnemonic:'A house with a chimney — "ho-use", cozy inside.', strokes:['Short vertical stroke, left.','Vertical stroke, right.','Horizontal stroke crossing.','Small curved stroke, bottom-right.'] },
+  ]},
+  { title: 'M-row', chars: [
+    { h:'ま', r:'ma', mnemonic:'A person sitting cross-legged — calling out "ma!" for mother.', strokes:['Short horizontal stroke.','Vertical stroke crossing it.','Curved loop stroke closing at the bottom.'] },
+    { h:'み', r:'mi', mnemonic:'A curled ribbon — a "mi"-ni bow on a gift.', strokes:['Short curved stroke, top.','Long stroke swooping down into a loop.'] },
+    { h:'む', r:'mu', mnemonic:'A cow\'s face — going "moo" (mu in Japanese)!', strokes:['Curved stroke, top-left.','Diagonal stroke crossing it.','Small loop stroke at the bottom.'] },
+    { h:'め', r:'me', mnemonic:'An eye — "me" literally means eye.', strokes:['Curved stroke down.','Stroke crossing through into a small loop, like an eye shape.'] },
+    { h:'も', r:'mo', mnemonic:'A fishing rod catching "mo-re" fish — a hook with a cross-bar.', strokes:['Vertical stroke down.','Two horizontal strokes crossing it.'] },
+  ]},
+  { title: 'Y-row', chars: [
+    { h:'や', r:'ya', mnemonic:'A slingshot — pull back and shout "ya!" as you let go.', strokes:['Diagonal stroke, top.','Curved vertical stroke down.','Short crossing stroke near the bottom.'] },
+    { h:'ゆ', r:'yu', mnemonic:'A hook doing a U-turn — "yu-turn" on the road.', strokes:['Curved stroke, top.','Long looping stroke down and around.'] },
+    { h:'よ', r:'yo', mnemonic:'A friend waving, "yo!" — a bent little greeting.', strokes:['Short horizontal stroke, top.','Curved vertical stroke down with a hook.'] },
+  ]},
+  { title: 'R-row', chars: [
+    { h:'ら', r:'ra', mnemonic:'A rabbit\'s ear flopping over — "ra"-bbit.', strokes:['Short horizontal stroke.','Curved stroke down, hooking left at the bottom.'] },
+    { h:'り', r:'ri', mnemonic:'Two chopsticks close together, slightly uneven — picking up "ri"ce.', strokes:['Short vertical stroke, left.','Longer curved stroke, right.'] },
+    { h:'る', r:'ru', mnemonic:'A treble clef loop — musical "ru-ru-ru" humming.', strokes:['One continuous stroke curving down into a tight loop.'] },
+    { h:'れ', r:'re', mnemonic:'Like ね but simpler — a small hook with a short tail, saying "reh".', strokes:['Curved stroke down.','Short hook stroke at the bottom.'] },
+    { h:'ろ', r:'ro', mnemonic:'A road curving round a bend — "ro"-ad trip.', strokes:['One continuous curved stroke, boxy at the top, hooking at the bottom.'] },
+  ]},
+  { title: 'W-row & N', chars: [
+    { h:'わ', r:'wa', mnemonic:'A swan gliding gracefully — "wa"ter bird.', strokes:['Short curved stroke, top.','Long curved stroke down and around, like a swan\'s neck.'] },
+    { h:'を', r:'wo', mnemonic:'Like わ with an extra flourish — only used as the "o" particle marker, rarely written otherwise.', strokes:['Short horizontal stroke, top.','Vertical stroke crossing it.','Curved hook stroke, bottom-right.'] },
+    { h:'ん', r:'n', mnemonic:'A single hook — the smallest, simplest sound, standing all alone as "n".', strokes:['One curved stroke, sweeping down then hooking back up-right.'] },
+  ]},
+  { title: 'G-row (゛)', dakuten:true, chars: [
+    { h:'が', r:'ga', mnemonic:'The key (か) now "buzzes" — add the two marks and the key hums with electricity, "ga-ga-ga".', strokes:['Draw か fully (vertical stroke with hook, diagonal cross, small tag stroke).','Add two short diagonal strokes (゛) upper-right to voice it.'] },
+    { h:'ぎ', r:'gi', mnemonic:'The key (き) now buzzing — a key that gives you a little shock when you touch it.', strokes:['Draw き fully (two horizontal strokes, vertical stroke, curved loop).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ぐ', r:'gu', mnemonic:'The claw (く) now growling — a crab claw that "gu-gu-grumbles".', strokes:['Draw く fully (one bent stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'げ', r:'ge', mnemonic:'The kettle (け) now buzzing — an electric kettle hissing "geh".', strokes:['Draw け fully (short vertical, hooked vertical, diagonal flick).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ご', r:'go', mnemonic:'The combs (こ) now buzzing — an electric comb, "go-go-go" vibrating.', strokes:['Draw こ fully (short horizontal, curved horizontal).','Add two short diagonal strokes (゛) upper-right.'] },
+  ]},
+  { title: 'Z-row (゛)', dakuten:true, chars: [
+    { h:'ざ', r:'za', mnemonic:'The hook (さ) now buzzing — a fishing hook with an electric shock, "za-za".', strokes:['Draw さ fully (short horizontal, vertical cross, curved hook).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'じ', r:'ji', mnemonic:'The ski slope (し) now buzzing — skiing so fast it sounds like "ji-ji-ji".', strokes:['Draw し fully (one long curved stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ず', r:'zu', mnemonic:'The noodle swirl (す) now buzzing — an electric noodle machine, "zu-zu-zu".', strokes:['Draw す fully (short curve, long looping stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ぜ', r:'ze', mnemonic:'The well (せ) now buzzing — an electric water pump, "zeh-zeh".', strokes:['Draw せ fully (short horizontal, hooked vertical, crossing horizontal).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ぞ', r:'zo', mnemonic:'The lightning bolt (そ) now buzzing even louder — real static electricity, "zo-zo-zo".', strokes:['Draw そ fully (one zigzag stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+  ]},
+  { title: 'D-row (゛)', dakuten:true, chars: [
+    { h:'だ', r:'da', mnemonic:'The person crossing their arms (た) now buzzing — "da-da-da", a drumroll.', strokes:['Draw た fully (short horizontal, vertical cross, curved stroke, diagonal flick).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ぢ', r:'ji (rare)', mnemonic:'Same sound as じ, but written with ち — only used in a few specific words like a candy cane that buzzes.', strokes:['Draw ち fully (short horizontal, long curved hook).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'づ', r:'zu (rare)', mnemonic:'Same sound as ず, but written with つ — a buzzing ocean wave, used in only a few words.', strokes:['Draw つ fully (one smooth curved stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'で', r:'de', mnemonic:'The reaching hand (て) now buzzing — a hand that gives you a static shock, "deh".', strokes:['Draw て fully (one continuous hook stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ど', r:'do', mnemonic:'The kicking toe (と) now buzzing — kicking a live wire, "do-do-do".', strokes:['Draw と fully (short vertical, curved hook stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+  ]},
+  { title: 'B-row (゛)', dakuten:true, chars: [
+    { h:'ば', r:'ba', mnemonic:'The laughing person (は) now buzzing — laughing so hard it sounds like "ba-ba-ba".', strokes:['Draw は fully (short vertical, hooked vertical, curved crossing stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'び', r:'bi', mnemonic:'The smiling curve (ひ) now buzzing — a big grin with a "bi-bi-bing".', strokes:['Draw ひ fully (one curved smile stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ぶ', r:'bu', mnemonic:'Mount Fuji (ふ) now buzzing — an earthquake shaking the mountain, "bu-bu-bu".', strokes:['Draw ふ fully (two diagonal strokes, curved stroke, hook stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'べ', r:'be', mnemonic:'The mountain peak (へ) now buzzing — a volcano rumbling "beh".', strokes:['Draw へ fully (one diagonal peak stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+    { h:'ぼ', r:'bo', mnemonic:'The house (ほ) now buzzing — a haunted house going "boo", "bo-bo".', strokes:['Draw ほ fully (short vertical, vertical, horizontal cross, curved stroke).','Add two short diagonal strokes (゛) upper-right.'] },
+  ]},
+  { title: 'P-row (゜)', dakuten:true, chars: [
+    { h:'ぱ', r:'pa', mnemonic:'The laughing person (は) now popping — a party popper going "pa!"', strokes:['Draw は fully (short vertical, hooked vertical, curved crossing stroke).','Add a small circle (゜) upper-right to make it crisp.'] },
+    { h:'ぴ', r:'pi', mnemonic:'The smiling curve (ひ) now popping — a bubble going "pi!" as it bursts.', strokes:['Draw ひ fully (one curved smile stroke).','Add a small circle (゜) upper-right.'] },
+    { h:'ぷ', r:'pu', mnemonic:'Mount Fuji (ふ) now popping — a volcano puffing smoke, "pu-pu-pu".', strokes:['Draw ふ fully (two diagonal strokes, curved stroke, hook stroke).','Add a small circle (゜) upper-right.'] },
+    { h:'ぺ', r:'pe', mnemonic:'The mountain peak (へ) now popping — a party horn, "peh!"', strokes:['Draw へ fully (one diagonal peak stroke).','Add a small circle (゜) upper-right.'] },
+    { h:'ぽ', r:'po', mnemonic:'The house (ほ) now popping — popcorn popping inside, "po-po-po".', strokes:['Draw ほ fully (short vertical, vertical, horizontal cross, curved stroke).','Add a small circle (゜) upper-right.'] },
+  ]},
+];
+const hiraganaFlat = hiraganaGroups.flatMap(g => g.chars.map(c => ({...c, group: g.title})));
+
+// =============================================
+// RENDER HIRAGANA TAB
+// =============================================
+function renderHiragana() {
+  const nav = document.getElementById('hira-row-nav');
+  nav.innerHTML = '<button class="hira-row-chip active" onclick="scrollToHiraGroup(null,this)">All</button>' +
+    hiraganaGroups.map(g => `<button class="hira-row-chip" onclick="scrollToHiraGroup('${g.title}',this)">${g.title}</button>`).join('');
+
+  const container = document.getElementById('hira-groups-container');
+  container.innerHTML = '';
+  hiraganaGroups.forEach((g, gi) => {
+    const isFirstDakuten = g.dakuten && !hiraganaGroups[gi - 1].dakuten;
+    const section = document.createElement('div');
+    section.id = 'hira-group-' + g.title.replace(/\s+/g,'-');
+    section.innerHTML = (isFirstDakuten ? `<div class="hira-dakuten-divider">゛゜ Dakuten &amp; Handakuten — Voiced Sounds<br><span>Same shapes as before, plus two small marks (゛) for a "buzzed" sound or a circle (゜) for a crisp "p" sound.</span></div>` : '') +
+      `<div class="hira-group-title">${g.title}</div><div class="hira-grid"></div>`;
+    const grid = section.querySelector('.hira-grid');
+    g.chars.forEach(c => {
+      const card = document.createElement('div');
+      card.className = 'hcard' + (g.dakuten ? ' hcard-dakuten' : '');
+      const strokeItems = c.strokes.map(s => `<li>${s}</li>`).join('');
+      card.innerHTML = `
+        <div class="hcard-char">${c.h}</div>
+        <div class="hcard-romaji">${c.r}</div>
+        <div class="hcard-btn-row">
+          <button class="hcard-mini-btn speak-mini" title="Pronounce">🔊 Say it</button>
+          <button class="hcard-mini-btn draw-mini" title="How to draw">✏️ Draw</button>
+        </div>
+        <div class="hcard-detail">
+          <div class="hcard-mnemonic">${c.mnemonic}</div>
+          <div class="hcard-strokes"><b>${c.strokes.length} stroke${c.strokes.length>1?'s':''}:</b><ol>${strokeItems}</ol></div>
+        </div>
+      `;
+      const speakBtn = card.querySelector('.speak-mini');
+      speakBtn.onclick = (e) => { e.stopPropagation(); speak(c.h, speakBtn); };
+      const drawBtn = card.querySelector('.draw-mini');
+      drawBtn.onclick = (e) => { e.stopPropagation(); card.classList.toggle('expanded'); };
+      grid.appendChild(card);
+    });
+    container.appendChild(section);
+  });
+}
+
+function scrollToHiraGroup(title, btn) {
+  document.querySelectorAll('.hira-row-chip').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  if (!title) { document.getElementById('hira-groups-container').scrollIntoView({behavior:'smooth', block:'start'}); return; }
+  const el = document.getElementById('hira-group-' + title.replace(/\s+/g,'-'));
+  if (el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+window.scrollToHiraGroup = scrollToHiraGroup;
+
+// =============================================
+// HIRAGANA QUIZ
+// =============================================
+let hQuizMode = 'read';
+let hQuizShuffled = [];
+let hqIndex = 0, hqScore = 0, hqTotal = 0, hqAnswered = false;
+let hQuizCurrentChar = '';
+
+function setHMode(mode, btn) {
+  hQuizMode = mode;
+  document.querySelectorAll('.hquiz-mode-row .quiz-mode-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  resetHQuiz();
+}
+
+function resetHQuiz() {
+  hQuizShuffled = shuffle(hiraganaFlat);
+  hqIndex = 0; hqScore = 0; hqTotal = 0; hqAnswered = false;
+  document.getElementById('hquiz-score').textContent = '0 / 0';
+  document.getElementById('hquiz-prog').style.width = '0%';
+  showHQuestion();
+}
+
+function showHQuestion() {
+  hqAnswered = false;
+  const fb = document.getElementById('hquiz-feedback');
+  fb.textContent = ''; fb.className = 'quiz-feedback';
+  const speakBtn = document.getElementById('hquiz-speak-btn');
+  if (speakBtn) speakBtn.classList.remove('speaking');
+
+  const cur = hQuizShuffled[hqIndex % hQuizShuffled.length];
+  hQuizCurrentChar = cur.h;
+
+  const others = shuffle(hiraganaFlat.filter(c => c.h !== cur.h)).slice(0, 3);
+  const options = shuffle([cur, ...others]);
+
+  const disp = document.getElementById('hquiz-display');
+  const tag = document.getElementById('hquiz-tag');
+  const speakRow = document.querySelector('#tab-hiragana .quiz-speak-row');
+
+  if (hQuizMode === 'read') {
+    disp.textContent = cur.h;
+    disp.style.fontFamily = "'Noto Serif JP', serif";
+    disp.style.fontSize = '96px';
+    tag.textContent = cur.group.toUpperCase();
+    speakRow.style.display = 'flex';
+    renderHOptions(options, o => o.r, () => cur.r);
+  } else if (hQuizMode === 'write') {
+    disp.textContent = cur.r;
+    disp.style.fontFamily = "'DM Mono', monospace";
+    disp.style.fontSize = '56px';
+    tag.textContent = cur.group.toUpperCase();
+    speakRow.style.display = 'flex';
+    renderHOptions(options, o => o.h, () => cur.h, true);
+  } else {
+    disp.textContent = '🔊';
+    disp.style.fontFamily = "'Noto Serif JP', serif";
+    disp.style.fontSize = '72px';
+    tag.textContent = 'LISTEN CAREFULLY';
+    speakRow.style.display = 'none';
+    renderHOptions(options, o => o.h, () => cur.h, true);
+    setTimeout(() => speak(cur.h, null), 300);
+  }
+}
+
+function renderHOptions(options, labelFn, correctFn, isHiraOption) {
+  const container = document.getElementById('hquiz-options');
+  container.innerHTML = '';
+  const correctVal = correctFn();
+  options.forEach(opt => {
+    const btn = document.createElement('button');
+    btn.className = 'qbtn';
+    if (isHiraOption) { btn.style.fontFamily = "'Noto Serif JP', serif"; btn.style.fontSize = '2rem'; }
+    btn.textContent = labelFn(opt);
+    btn.onclick = () => checkHAnswer(btn, labelFn(opt) === correctVal, options.find(o => labelFn(o) === correctVal), correctFn);
+    container.appendChild(btn);
+  });
+}
+
+function checkHAnswer(btn, correct, correctOpt, correctFn) {
+  if (hqAnswered) return;
+  hqAnswered = true;
+  hqTotal++;
+  const fb = document.getElementById('hquiz-feedback');
+  if (correct) {
+    btn.classList.add('correct');
+    hqScore++;
+    fb.className = 'quiz-feedback good';
+    fb.textContent = '✓ Correct! ' + (correctOpt ? correctOpt.mnemonic.slice(0,70) + '…' : '');
+  } else {
+    btn.classList.add('wrong');
+    document.querySelectorAll('#hquiz-options .qbtn').forEach(b => { if (b.textContent === correctFn()) b.classList.add('correct'); });
+    fb.className = 'quiz-feedback bad';
+    const ch = hiraganaFlat.find(c => correctFn() === c.h || correctFn() === c.r);
+    fb.textContent = '✗ Answer: ' + correctFn() + (ch ? ' — ' + ch.mnemonic.slice(0,50) + '…' : '');
+  }
+  speak(hQuizCurrentChar, null);
+  document.getElementById('hquiz-score').textContent = hqScore + ' / ' + hqTotal;
+  document.getElementById('hquiz-prog').style.width = Math.round((hqTotal / hiraganaFlat.length) * 100) + '%';
+}
+
+function nextHQ() {
+  hqIndex++;
+  if (hqIndex >= hQuizShuffled.length) hQuizShuffled = shuffle(hiraganaFlat);
+  showHQuestion();
+}
+
+function speakHQuizCurrent() {
+  const btn = document.getElementById('hquiz-speak-btn');
+  if (hQuizCurrentChar) speak(hQuizCurrentChar, btn);
+}
+
+window.setHMode = setHMode;
+window.nextHQ = nextHQ;
+window.speakHQuizCurrent = speakHQuizCurrent;
+
+// =============================================
+// TABS
+// =============================================
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  document.querySelectorAll('.nav-tab').forEach(t => {
+    if (t.getAttribute('onclick') === `switchTab('${name}')`) t.classList.add('active');
+  });
+  document.getElementById('search-input').style.display = name === 'browse' ? 'block' : 'none';
+}
+window.switchTab = switchTab;
+window.setMode = setMode;
+window.filterCards = filterCards;
+
+// =============================================
+// INIT
+// =============================================
+initVoice();
+// Hide speak buttons if speech API not available
+if (!canSpeak) {
+  const style = document.createElement('style');
+  style.textContent = '.speak-btn, .quiz-speak-btn, .speak-mini { display: none !important; }';
+  document.head.appendChild(style);
+}
+renderBrowse();
+renderCheatsheet();
+renderLookalikes();
+renderTheater();
+renderHiragana();
+resetQuiz();
+resetHQuiz();
+</script>
+
+<script>
+// Register service worker for offline support (required for Play Store PWA/TWA packaging)
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch(() => {});
+  });
+}
+</script>
+</body>
+</html>
